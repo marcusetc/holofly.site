@@ -66,6 +66,32 @@
             transition: all 0.3s ease;
         }
         
+        /* Estado inicial: 3 barras */
+        .menu-toggle span:nth-child(1) {
+            transform-origin: center;
+        }
+        
+        .menu-toggle span:nth-child(2) {
+            transform-origin: center;
+        }
+        
+        .menu-toggle span:nth-child(3) {
+            transform-origin: center;
+        }
+        
+        /* Estado quando ativo: transforma em X */
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
         .nav-menu {
             position: fixed;
             top: 0;
@@ -345,6 +371,7 @@
         <div class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
+            <span></span>
         </div>
     </header>
     
@@ -395,7 +422,7 @@
                     <div class="answer">No momento, apenas cartões de crédito são aceitos, mas em breve teremos outras opções.</div>
                 </div>
 
-                                <div class="faq-item">
+                <div class="faq-item">
                     <div class="question">Como funciona o pagamento?</div>
                     <div class="answer">Ao criar um pedido, é feita uma reserva do valor no cartão escolhido. Após o início de produção, o valor é capturado e só é repassado ao Artista após a entrega do arquivo final.</div>
                 </div>

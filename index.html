@@ -106,6 +106,30 @@
             border-radius: 3px;
             transition: all 0.3s ease;
         }
+
+        .menu-toggle span:nth-child(1) {
+    transform-origin: center;
+}
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: center;
+}
+
+.menu-toggle span:nth-child(3) {
+    transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
         
         .nav-menu {
             position: fixed;
@@ -459,10 +483,11 @@
             <span class="logo-text">HOLOFLY</span>
             <img src="icons/logo.png" alt="HOLOFLY" class="logo-img">
         </a>
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-        </div>
+<div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
     </header>
     
     <nav class="nav-menu" id="navMenu">

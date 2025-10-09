@@ -9,7 +9,6 @@
   <link rel="icon" href="icons/favicon3232.png" type="image/x-icon">
 
   <style>
-    /* Estilos base */
     * {
       margin: 0;
       padding: 0;
@@ -25,7 +24,6 @@
       min-height: 100vh;
     }
 
-    /* Header e Navegação */
     header {
       top: 0;
       left: 0;
@@ -68,6 +66,30 @@
       border-radius: 3px;
       transition: all 0.3s ease;
     }
+
+    .menu-toggle span:nth-child(1) {
+    transform-origin: center;
+}
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: center;
+}
+
+.menu-toggle span:nth-child(3) {
+    transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
     
     .nav-menu {
       position: fixed;
@@ -122,7 +144,6 @@
       visibility: visible;
     }
 
-    /* Conteúdo principal */
     .main-content {
       max-width: 1000px;
       margin: 100px auto 0;
@@ -213,7 +234,6 @@
       transition: 0.3s;
     }
 
-    /* FOOTER */
     .page-footer {
       background-color: #000;
       padding: 2rem 1rem;
@@ -253,7 +273,6 @@
       margin-right: 15px;
     }
 
-    /* Estilos para mensagens de status */
     .status-message {
       padding: 12px;
       border-radius: 5px;
@@ -287,7 +306,6 @@
       color: #ff4444;
     }
 
-    /* Popup de sucesso centralizado */
     .popup-overlay {
       position: fixed;
       top: 0;
@@ -330,7 +348,6 @@
       background: #27ae60;
     }
 
-    /* Responsividade */
     @media (max-width: 768px) {
       .footer-text span {
         display: block;
@@ -345,19 +362,18 @@
   </style>
 </head>
 <body>
-  <!-- Header com logo e menu hamburguer -->
   <header>
     <a href="../index.html" class="logo">
       <span class="logo-text">HOLOFLY</span>
       <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img">
     </a>
-    <div class="menu-toggle" id="menuToggle">
-      <span></span>
-      <span></span>
-    </div>
+<div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
   </header>
   
-  <!-- Menu de navegação -->
   <nav class="nav-menu" id="navMenu">
     <ul>
       <li><a href="../index.html">Início</a></li>
@@ -366,27 +382,21 @@
     </ul>
   </nav>
   
-  <!-- Overlay para fechar o menu ao clicar fora -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- Conteúdo principal -->
   <div class="main-content">
     <div class="content">
       <h2>Envie uma Mensagem</h2>
       
-      <!-- Container para mensagens de status -->
       <div id="statusMessage"></div>
       
-      <!-- Formulário Zoho integrado -->
       <form id="contactForm" name="form" method="POST" accept-charset="UTF-8" 
             action="https://forms.zohopublic.com/marcushol1/form/Contato/formperma/OdQ0Tq8e7zEsDwj62_eAIXCdJ5fJfXh1yTDmLQ91X54/htmlRecords/submit">
         
-        <!-- Campos ocultos do Zoho -->
         <input type="hidden" name="zf_referrer_name" value="">
         <input type="hidden" name="zf_redirect_url" value="">
         <input type="hidden" name="zc_gad" value="">
         
-        <!-- Nome e Sobrenome -->
         <label>Nome e sobrenome <em>*</em></label>
         <div class="name-row">
           <input type="text" maxlength="255" name="Name_First" fieldType="7" placeholder="Nome" required 
@@ -395,22 +405,18 @@
                  oninput="this.value=this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g,'')">
         </div>
         
-        <!-- Email -->
         <label>Email <em>*</em></label>
         <input type="email" maxlength="255" name="Email" value="" fieldType="9" placeholder="Seu email" required 
                pattern=".*@.*" title="O email deve conter '@'">
         
-        <!-- Telefone -->
         <label>Telefone (opcional)</label>
         <input type="tel" id="PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" 
                placeholder="(99) 99999-9999" fieldType="11">
         
-        <!-- Assunto -->
         <label>Assunto <em>*</em></label>
         <input type="text" name="SingleLine" value="" fieldType="1" maxlength="255" 
                placeholder="Assunto da mensagem" required>
         
-        <!-- Mensagem -->
         <label>Mensagem <em>*</em></label>
         <textarea name="MultiLine" maxlength="65535" placeholder="Sua mensagem" required></textarea>
         
@@ -428,7 +434,6 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="page-footer">
     <div class="footer-content">
       <div class="footer-links">
@@ -444,7 +449,6 @@
   </footer>
 
   <script>
-    // Menu toggle functionality
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     const overlay = document.getElementById('overlay');
@@ -458,7 +462,6 @@
     menuToggle.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
     
-    // Alternar entre logo texto e imagem baseado no tamanho da tela
     function checkScreenSize() {
       const logoText = document.querySelector('.logo-text');
       const logoImg = document.querySelector('.logo-img');
@@ -472,17 +475,14 @@
       }
     }
     
-    // Verificar ao carregar e redimensionar
     window.addEventListener('load', checkScreenSize);
     window.addEventListener('resize', checkScreenSize);
 
-    // Código do formulário de contato
     const contactForm = document.getElementById('contactForm');
     const submitButton = document.getElementById('submitButton');
     const statusMessage = document.getElementById('statusMessage');
     const telefoneInput = document.getElementById('PhoneNumber');
 
-    // Máscara de telefone
     telefoneInput.addEventListener("input", function (e) {
       let valor = e.target.value.replace(/\D/g, "");
       valor = valor.substring(0, 11);
@@ -496,13 +496,10 @@
       }
     });
 
-    // Função para mostrar popup de status
     function showStatus(message, type) {
-      // Cria overlay
       const overlay = document.createElement('div');
       overlay.classList.add('popup-overlay');
 
-      // Cria box
       const box = document.createElement('div');
       box.classList.add('popup-box');
       box.innerHTML = `
@@ -513,13 +510,11 @@
       overlay.appendChild(box);
       document.body.appendChild(overlay);
 
-      // Fechar ao clicar no botão
       document.getElementById('closePopup').addEventListener('click', () => {
         overlay.remove();
       });
     }
 
-    // Validação do formulário
     function validarFormulario() {
       const nome = document.getElementsByName('Name_First')[0].value;
       const sobrenome = document.getElementsByName('Name_Last')[0].value;
@@ -548,9 +543,8 @@
       return true;
     }
 
-    // Envio do formulário via AJAX
     contactForm.addEventListener('submit', function (e) {
-      e.preventDefault(); // Impede redirecionamento
+      e.preventDefault(); 
 
       if (!validarFormulario()) return;
 
@@ -558,18 +552,15 @@
       submitButton.textContent = 'Enviando...';
       contactForm.classList.add('loading');
 
-      // Cria objeto FormData
       const formData = new FormData(contactForm);
 
-      // Sobrescreve o telefone: envia apenas os números
       const telefoneLimpo = telefoneInput.value.replace(/\D/g, '');
       formData.set('PhoneNumber_countrycode', telefoneLimpo);
 
-      // Faz o POST direto pro Zoho
       fetch(contactForm.action, {
         method: 'POST',
         body: formData,
-        mode: 'no-cors' // 👈 importante pra evitar bloqueio de CORS
+        mode: 'no-cors' 
       })
       .then(() => {
         showStatus('✅ Sua mensagem foi enviada com sucesso!', 'success');
@@ -585,7 +576,6 @@
       });
     });
 
-    // Limpar erros quando usuário digitar
     contactForm.addEventListener('input', function() {
       if (statusMessage.innerHTML.includes('error')) {
         statusMessage.innerHTML = '';

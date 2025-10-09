@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="icons/favicon3232.png" type="image/x-icon">
     <style>
-        /* Estilos base */
         * {
             margin: 0;
             padding: 0;
@@ -24,9 +23,7 @@
             min-height: 100vh;
         }
 
-        /* Header e Navegação - REMOVIDO POSITION: FIXED */
         header {
-            /* position: fixed; REMOVIDO */
             top: 0;
             left: 0;
             width: 100%;
@@ -122,34 +119,31 @@
             visibility: visible;
         }
 
-        /* Conteúdo principal - AJUSTADO MARGIN TOP */
         .main-content {
             max-width: 1000px;
-            margin: 0 auto; /* REMOVIDO MARGIN TOP */
+            margin: 0 auto; 
             padding: 20px;
             min-height: calc(100vh - 200px);
         }
         
-        /* ALINHADO À ESQUERDA */
         .page-title {
             font-size: 2.2rem;
-            text-align: left; /* ALTERADO DE CENTER PARA LEFT */
+            text-align: left; 
             margin-bottom: 10px;
         }
         
         .page-subtitle {
-            text-align: left; /* ALTERADO DE CENTER PARA LEFT */
+            text-align: left; 
             color: #ccc;
             margin-bottom: 30px;
             font-size: 1.1rem;
         }
         
-        /* Filtros - ALINHADO À ESQUERDA */
         .filter-buttons {
             display: flex;
             gap: 15px;
             margin-bottom: 30px;
-            justify-content: flex-start; /* ALTERADO DE CENTER PARA FLEX-START */
+            justify-content: flex-start; 
             flex-wrap: wrap;
         }
         
@@ -176,7 +170,6 @@
             transform: translateY(-2px);
         }
         
-        /* Container FAQ */
         .faq-category {
             display: none;
             animation: fadeIn 0.5s ease-in;
@@ -242,9 +235,8 @@
             line-height: 1.5;
         }
         
-        /* Seção de contato - ALTERADO */
         .contact-section {
-            text-align: left; /* ALTERADO DE CENTER PARA LEFT */
+            text-align: left; 
             padding: 40px 30px;
             background: #1a1a1a;
             border-radius: 10px;
@@ -257,7 +249,6 @@
             color: #fff;
         }
         
-        /* REMOVIDO O ESTILO DO BOTÃO E ADICIONADO ESTILO PARA O LINK DE EMAIL */
         .contact-email {
             color: #0066ff;
             text-decoration: none;
@@ -270,7 +261,6 @@
             text-decoration: underline;
         }
         
-        /* FOOTER */
         .page-footer {
             background-color: #000;
             padding: 2rem 1rem;
@@ -310,17 +300,15 @@
             margin-right: 15px;
         }
         
-        /* Animações */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Responsividade */
         @media (max-width: 768px) {
             .filter-buttons {
                 flex-direction: column;
-                align-items: flex-start; /* ALTERADO DE CENTER PARA FLEX-START */
+                align-items: flex-start; 
             }
             
             .filter-btn {
@@ -349,7 +337,6 @@
     </style>
 </head>
 <body>
-    <!-- Header com logo e menu hamburguer - NÃO MAIS FIXO -->
     <header>
         <a href="../index.html" class="logo">
             <span class="logo-text">HOLOFLY</span>
@@ -361,7 +348,6 @@
         </div>
     </header>
     
-    <!-- Menu de navegação -->
     <nav class="nav-menu" id="navMenu">
         <ul>
             <li><a href="../index.html">Início</a></li>
@@ -370,21 +356,17 @@
         </ul>
     </nav>
     
-    <!-- Overlay para fechar o menu ao clicar fora -->
     <div class="overlay" id="overlay"></div>
 
-    <!-- Conteúdo principal -->
     <div class="main-content">
         <h1 class="page-title">Perguntas Frequentes</h1>
         <p class="page-subtitle">Encontre respostas para suas dúvidas</p>
 
-        <!-- Filtros -->
         <div class="filter-buttons">
             <button class="filter-btn active" data-category="cliente">Clientes</button>
             <button class="filter-btn" data-category="artista">Artistas</button>
         </div>
 
-        <!-- CATEGORIA CLIENTE -->
         <div class="faq-category active" id="category-cliente">
             <div class="faq-container">
 
@@ -448,7 +430,6 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
             </div>
         </div>
 
-        <!-- CATEGORIA ARTISTA -->
         <div class="faq-category" id="category-artista">
             <div class="faq-container">
                 
@@ -501,15 +482,13 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
             </div>
         </div>
 
-        <!-- Seção de Contato - ALTERADA -->
-        <div class="contact-section">
-            <h3 class="contact-title">Não encontrou o que procurava?</h3>
-            <p>Envie um e-mail pra gente: <a href="mailto:contato@holofly.com.br" class="contact-email">contato@holofly.com.br</a></p>
-        </div>
+<div class="contact-section">
+    <h3 class="contact-title">Não encontrou o que procurava?</h3>
+    <p>Envie um e-mail pra gente: <a href="mailto:contato@holofly.com.br?subject=Suporte%20Holofly" class="contact-email">contato@holofly.com.br</a></p>
+</div>
 
     </div>
 
-    <!-- FOOTER -->
     <footer class="page-footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -525,7 +504,6 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
     </footer>
 
     <script>
-        // Menu toggle functionality
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
         const overlay = document.getElementById('overlay');
@@ -539,7 +517,6 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
         menuToggle.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
         
-        // Alternar entre logo texto e imagem baseado no tamanho da tela
         function checkScreenSize() {
             const logoText = document.querySelector('.logo-text');
             const logoImg = document.querySelector('.logo-img');
@@ -553,31 +530,24 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
             }
         }
         
-        // Verificar ao carregar e redimensionar
         window.addEventListener('load', checkScreenSize);
         window.addEventListener('resize', checkScreenSize);
 
-        // Funcionalidade dos filtros
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', function() {
-                // Remove active de todos os botões
                 document.querySelectorAll('.filter-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
                 
-                // Adiciona active ao botão clicado
                 this.classList.add('active');
                 
-                // Oculta todas as categorias
                 document.querySelectorAll('.faq-category').forEach(category => {
                     category.classList.remove('active');
                 });
                 
-                // Mostra a categoria selecionada
                 const category = this.getAttribute('data-category');
                 document.getElementById(`category-${category}`).classList.add('active');
                 
-                // Rolagem suave para o topo do FAQ
                 document.querySelector('.faq-container').scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start'
@@ -585,7 +555,6 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
             });
         });
 
-        // Efeito hover nos botões de filtro
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('mouseenter', function() {
                 if (!this.classList.contains('active')) {

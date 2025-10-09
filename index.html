@@ -6,10 +6,7 @@
     <title>Holofly</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Adicione esta linha para o ícone na aba do navegador -->
-    <link rel="icon" href="icons/favicon3232.png" type="image/x-icon">
     <style>
-        /* Estilos base */
         * {
             margin: 0;
             padding: 0;
@@ -53,12 +50,6 @@
             justify-content: center;
         }
         
-        .section-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        
         .section-title {
             font-size: 2rem;
             margin-bottom: 2rem;
@@ -69,7 +60,7 @@
             font-weight: 700;
         }
         
-        /* Header e Navegação - REMOVIDO POSITION: FIXED */
+        /* Header e Navegação */
         header {
             padding: 20px;
             display: flex;
@@ -177,15 +168,14 @@
         }
         
         .download-buttons.mobile img {
-            height: 50px; /* Tamanho reduzido para mobile */
+            height: 50px;
         }
         
         .download-title {
             font-size: 1.2rem;
             margin-top: 2rem;
             color: #fff;
-                        text-align: left;
-
+            text-align: left;
         }
         
         /* Mensagem "Disponível em breve" */
@@ -203,33 +193,6 @@
         .soon-message.show {
             opacity: 1;
             height: auto;
-        }
-        
-        /* Seção 4 (inalterada) */
-        #section4 {
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        .sub-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .line-1, .line-2 {
-            display: block;
-        }
-        
-        .store-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .store-badges img {
-            height: 60px;
         }
         
         /* FOOTER */
@@ -293,85 +256,48 @@
             height: 32px;
         }
 
-        /* ===== ESTILOS DO CARROSSEL DESKTOP (OPÇÃO A) ===== */
-        .carousel-desktop {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            height: 400px;
-            overflow: hidden;
-            border-radius: 15px;
-        }
-
-        .carousel-desktop-track {
-            display: flex;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-desktop-slide {
-            flex: 0 0 15%; /* Cada slide ocupa 20% (5 slides visíveis) */
-            height: 100%;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.5s ease-in-out;
-            transform: scale(0.9);
-            opacity: 0.7;
-        }
-
-        .carousel-desktop-slide.active {
-            flex: 0 0 40%; /* Slide ativo ocupa 40% */
-            transform: scale(1);
-            opacity: 1;
-            z-index: 2;
-        }
-
-        .carousel-desktop-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        /* ===== ESTILOS DO CARROSSEL MOBILE (OPÇÃO B - COVER FLOW) ===== */
+        /* ===== ESTILOS DO CARROSSEL MOBILE - COVER FLOW FLUIDO ===== */
         .carousel-mobile {
             position: relative;
-            width: 100vw; /* Ocupa toda a largura da viewport */
+            width: 100vw;
             max-width: 100%;
             height: 500px;
             overflow: hidden;
-            margin-left: -20px; /* Compensa o padding da section */
+            margin-left: -20px;
             margin-right: -20px;
+            perspective: 1200px;
+            touch-action: pan-y;
         }
 
         .carousel-mobile-track {
             display: flex;
             height: 100%;
-            transition: transform 0.5s ease-in-out;
             align-items: center;
             transform-style: preserve-3d;
+            transition: transform 0.01s linear; /* Transição mínima para o track */
         }
 
         .carousel-mobile-slide {
             position: absolute;
             width: 80%;
             height: 80%;
-            transition: all 0.5s ease-in-out;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            backface-visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* Transição suave para posições */
         }
 
         .carousel-mobile-slide.left {
             left: 0%;
-            transform: scale(0.8) translateZ(-100px);
-            opacity: 0.6;
+            transform: scale(0.85) translateZ(-150px) rotateY(10deg);
+            opacity: 0.7;
             z-index: 1;
         }
 
         .carousel-mobile-slide.center {
             left: 10%;
-            transform: scale(1) translateZ(0);
+            transform: scale(1) translateZ(0) rotateY(0deg);
             opacity: 1;
             z-index: 2;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
@@ -379,8 +305,8 @@
 
         .carousel-mobile-slide.right {
             left: 45%;
-            transform: scale(0.8) translateZ(-100px);
-            opacity: 0.6;
+            transform: scale(0.85) translateZ(-150px) rotateY(-10deg);
+            opacity: 0.7;
             z-index: 1;
         }
 
@@ -390,8 +316,6 @@
             object-fit: cover;
         }
 
-        /* REMOVIDO: Controles do carrossel (setinhas) */
-        
         .carousel-dots {
             display: flex;
             justify-content: center;
@@ -413,19 +337,42 @@
             transform: scale(1.2);
         }
 
+        /* Indicador de arraste */
+        .drag-indicator {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .drag-indicator.show {
+            opacity: 1;
+        }
+
         /* Esconder carrossel não ativo */
-        .carousel-desktop,
-        .carousel-mobile {
+        .carousel-desktop {
             display: none;
         }
 
-        /* Media Queries para mostrar o carrossel correto */
+        .carousel-mobile {
+            display: block;
+        }
+
+        /* Media Queries */
         @media (min-width: 769px) {
             .carousel-desktop {
                 display: block;
             }
             
-            /* Ordem desktop: texto + botões na esquerda, carrossel na direita */
+            .carousel-mobile {
+                display: none;
+            }
+            
             .section-content {
                 flex-direction: row;
             }
@@ -444,7 +391,6 @@
                 display: block;
             }
             
-            /* Ordem mobile: carrossel no topo, depois texto, depois botões */
             .section-content {
                 flex-direction: column;
                 text-align: center;
@@ -475,7 +421,6 @@
                 justify-content: center;
             }
             
-            /* Garantir que os botões de download fiquem lado a lado em mobile */
             .download-buttons.mobile {
                 display: flex;
                 justify-content: center;
@@ -500,8 +445,8 @@
     <!-- Menu de navegação -->
     <nav class="nav-menu" id="navMenu">
         <ul>
-<li><a href="sobre/index.html">Sobre a Holofly</a></li>
-<li><a href="perguntasfrequentes/index.html">Perguntas Frequentes</a></li>
+            <li><a href="sobre/index.html">Sobre a Holofly</a></li>
+            <li><a href="perguntasfrequentes/index.html">Perguntas Frequentes</a></li>
             <li><a href="contato/index.html">Contato</a></li>
         </ul>
     </nav>
@@ -529,45 +474,20 @@
                 <div class="soon-message" id="soon-message-1">Disponível em breve*</div>
             </div>
             <div class="image-content">
-                <!-- Carrossel Desktop -->
-                <div class="carousel-desktop" id="carousel1-desktop">
-                    <div class="carousel-desktop-track">
-                        <div class="carousel-desktop-slide active" data-index="0">
-                            <img src="images/cliente01.webp" alt="Cliente Holofly 01">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="1">
-                            <img src="images/cliente02.webp" alt="Cliente Holofly 02">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="2">
-                            <img src="images/cliente03.webp" alt="Cliente Holofly 03">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="3">
-                            <img src="images/cliente04.webp" alt="Cliente Holofly 04">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="4">
-                            <img src="images/cliente05.webp" alt="Cliente Holofly 05">
-                        </div>
-                    </div>
-                    <!-- REMOVIDO: Botões de navegação -->
-                    <div class="carousel-dots">
-                        <!-- Dots serão gerados via JavaScript -->
-                    </div>
-                </div>
-
                 <!-- Carrossel Mobile -->
                 <div class="carousel-mobile" id="carousel1-mobile">
                     <div class="carousel-mobile-track">
                         <div class="carousel-mobile-slide left" data-index="1">
-                            <img src="images/cliente02.webp" alt="Cliente Holofly 02">
+                            <img src="https://picsum.photos/id/1018/800/600" alt="Cliente Holofly 02">
                         </div>
                         <div class="carousel-mobile-slide center" data-index="2">
-                            <img src="images/cliente03.webp" alt="Cliente Holofly 03">
+                            <img src="https://picsum.photos/id/1025/800/600" alt="Cliente Holofly 03">
                         </div>
                         <div class="carousel-mobile-slide right" data-index="3">
-                            <img src="images/cliente04.webp" alt="Cliente Holofly 04">
+                            <img src="https://picsum.photos/id/1035/800/600" alt="Cliente Holofly 04">
                         </div>
                     </div>
-                    <!-- REMOVIDO: Botões de navegação -->
+                    <div class="drag-indicator" id="drag-indicator-1">Deslize para navegar</div>
                     <div class="carousel-dots">
                         <!-- Dots serão gerados via JavaScript -->
                     </div>
@@ -596,45 +516,20 @@
                 <div class="soon-message" id="soon-message-2">Disponível em breve*</div>
             </div>
             <div class="image-content">
-                <!-- Carrossel Desktop -->
-                <div class="carousel-desktop" id="carousel2-desktop">
-                    <div class="carousel-desktop-track">
-                        <div class="carousel-desktop-slide active" data-index="0">
-                            <img src="images/artista01.webp" alt="Artista Holofly 01">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="1">
-                            <img src="images/artista02.webp" alt="Artista Holofly 02">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="2">
-                            <img src="images/artista03.webp" alt="Artista Holofly 03">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="3">
-                            <img src="images/artista04.webp" alt="Artista Holofly 04">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="4">
-                            <img src="images/artista05.webp" alt="Artista Holofly 05">
-                        </div>
-                    </div>
-                    <!-- REMOVIDO: Botões de navegação -->
-                    <div class="carousel-dots">
-                        <!-- Dots serão gerados via JavaScript -->
-                    </div>
-                </div>
-
                 <!-- Carrossel Mobile -->
                 <div class="carousel-mobile" id="carousel2-mobile">
                     <div class="carousel-mobile-track">
                         <div class="carousel-mobile-slide left" data-index="1">
-                            <img src="images/artista02.webp" alt="Artista Holofly 02">
+                            <img src="https://picsum.photos/id/1040/800/600" alt="Artista Holofly 02">
                         </div>
                         <div class="carousel-mobile-slide center" data-index="2">
-                            <img src="images/artista03.webp" alt="Artista Holofly 03">
+                            <img src="https://picsum.photos/id/1044/800/600" alt="Artista Holofly 03">
                         </div>
                         <div class="carousel-mobile-slide right" data-index="3">
-                            <img src="images/artista04.webp" alt="Artista Holofly 04">
+                            <img src="https://picsum.photos/id/1050/800/600" alt="Artista Holofly 04">
                         </div>
                     </div>
-                    <!-- REMOVIDO: Botões de navegação -->
+                    <div class="drag-indicator" id="drag-indicator-2">Deslize para navegar</div>
                     <div class="carousel-dots">
                         <!-- Dots serão gerados via JavaScript -->
                     </div>
@@ -643,11 +538,9 @@
         </div>
     </div>
 
-    
     <!-- FOOTER -->
     <footer class="page-footer">
         <div class="footer-content">
-            <!-- Ícones das redes sociais com o mesmo alinhamento -->
             <div class="social-icons-footer">
                 <a href="https://www.facebook.com/profile.php?id=61580622752588" target="_blank">
                     <img src="icons/Facebook_Logo_Primary.png" alt="Facebook">
@@ -702,96 +595,25 @@
         window.addEventListener('load', checkScreenSize);
         window.addEventListener('resize', checkScreenSize);
 
-        // ===== CARROSSEL DESKTOP =====
-        class DesktopCarousel {
-            constructor(carouselId, images) {
-                this.carousel = document.getElementById(carouselId);
-                this.track = this.carousel.querySelector('.carousel-desktop-track');
-                this.slides = this.carousel.querySelectorAll('.carousel-desktop-slide');
-                this.dotsContainer = this.carousel.querySelector('.carousel-dots');
-                
-                this.currentIndex = 0;
-                this.totalSlides = this.slides.length;
-                
-                this.init();
-            }
-            
-            init() {
-                // Criar dots
-                this.createDots();
-                
-                // Event listeners para cliques nos slides
-                this.slides.forEach((slide, index) => {
-                    slide.addEventListener('click', () => this.goToSlide(index));
-                });
-                
-                // Auto slide
-                this.startAutoSlide();
-                
-                // Pausar no hover
-                this.carousel.addEventListener('mouseenter', () => this.stopAutoSlide());
-                this.carousel.addEventListener('mouseleave', () => this.startAutoSlide());
-            }
-            
-            createDots() {
-                this.dotsContainer.innerHTML = '';
-                for (let i = 0; i < this.totalSlides; i++) {
-                    const dot = document.createElement('span');
-                    dot.className = 'carousel-dot';
-                    if (i === this.currentIndex) dot.classList.add('active');
-                    dot.addEventListener('click', () => this.goToSlide(i));
-                    this.dotsContainer.appendChild(dot);
-                }
-            }
-            
-            updateCarousel() {
-                // Atualizar slides
-                this.slides.forEach((slide, index) => {
-                    slide.classList.toggle('active', index === this.currentIndex);
-                });
-                
-                // Atualizar dots
-                const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === this.currentIndex);
-                });
-            }
-            
-            next() {
-                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
-                this.updateCarousel();
-            }
-            
-            prev() {
-                this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
-                this.updateCarousel();
-            }
-            
-            goToSlide(index) {
-                this.currentIndex = index;
-                this.updateCarousel();
-            }
-            
-            startAutoSlide() {
-                this.autoSlideInterval = setInterval(() => this.next(), 5000);
-            }
-            
-            stopAutoSlide() {
-                clearInterval(this.autoSlideInterval);
-            }
-        }
-
-        // ===== CARROSSEL MOBILE - COVER FLOW =====
+        // ===== CARROSSEL MOBILE - COVER FLOW FLUIDO =====
         class MobileCarousel {
             constructor(carouselId, imagePrefix, totalSlides) {
                 this.carousel = document.getElementById(carouselId);
                 this.track = this.carousel.querySelector('.carousel-mobile-track');
                 this.slides = this.carousel.querySelectorAll('.carousel-mobile-slide');
                 this.dotsContainer = this.carousel.querySelector('.carousel-dots');
+                this.dragIndicator = document.getElementById(`drag-indicator-${carouselId.split('-')[1]}`);
                 
                 this.imagePrefix = imagePrefix;
                 this.totalSlides = totalSlides;
                 this.currentIndex = 2; // Começar com a imagem do meio (índice 2)
+                
+                // Variáveis para controle de arraste
+                this.isDragging = false;
+                this.startX = 0;
+                this.currentX = 0;
+                this.dragOffset = 0;
+                this.dragThreshold = 50; // Distância mínima para considerar um arraste válido
                 
                 this.init();
             }
@@ -800,52 +622,145 @@
                 // Criar dots
                 this.createDots();
                 
-                // Event listeners para swipe
-                this.setupSwipeEvents();
+                // Event listeners para arraste
+                this.setupDragEvents();
                 
                 // Atualizar carrossel inicialmente
                 this.updateCarousel();
                 
-                // REMOVIDO: Auto slide - agora é estático até o usuário interagir
+                // Mostrar indicador de arraste inicialmente
+                this.showDragIndicator();
             }
             
-            setupSwipeEvents() {
-                let startX = 0;
-                let endX = 0;
+            setupDragEvents() {
+                // Eventos de toque
+                this.carousel.addEventListener('touchstart', this.handleDragStart.bind(this));
+                this.carousel.addEventListener('touchmove', this.handleDragMove.bind(this));
+                this.carousel.addEventListener('touchend', this.handleDragEnd.bind(this));
                 
-                this.carousel.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
+                // Eventos de mouse (para desenvolvimento)
+                this.carousel.addEventListener('mousedown', this.handleDragStart.bind(this));
+                this.carousel.addEventListener('mousemove', this.handleDragMove.bind(this));
+                this.carousel.addEventListener('mouseup', this.handleDragEnd.bind(this));
+                this.carousel.addEventListener('mouseleave', this.handleDragEnd.bind(this));
+            }
+            
+            handleDragStart(e) {
+                this.isDragging = true;
+                this.startX = this.getClientX(e);
+                this.currentX = this.startX;
+                this.dragOffset = 0;
+                
+                // Remover transições durante o arraste para maior fluidez
+                this.slides.forEach(slide => {
+                    slide.style.transition = 'none';
                 });
                 
-                this.carousel.addEventListener('touchend', (e) => {
-                    endX = e.changedTouches[0].clientX;
-                    this.handleSwipe(startX, endX);
+                // Esconder indicador de arraste
+                this.hideDragIndicator();
+                
+                e.preventDefault();
+            }
+            
+            handleDragMove(e) {
+                if (!this.isDragging) return;
+                
+                const clientX = this.getClientX(e);
+                this.dragOffset = clientX - this.startX;
+                this.currentX = clientX;
+                
+                // Atualizar posições dos slides em tempo real durante o arraste
+                this.updateSlidePositions();
+                
+                e.preventDefault();
+            }
+            
+            handleDragEnd(e) {
+                if (!this.isDragging) return;
+                
+                this.isDragging = false;
+                
+                // Restaurar transições
+                this.slides.forEach(slide => {
+                    slide.style.transition = 'all 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
                 });
                 
-                // Suporte a mouse para desenvolvimento
-                this.carousel.addEventListener('mousedown', (e) => {
-                    startX = e.clientX;
-                    document.addEventListener('mouseup', handleMouseUp);
-                });
+                // Determinar se foi um arraste válido e em qual direção
+                if (Math.abs(this.dragOffset) > this.dragThreshold) {
+                    if (this.dragOffset > 0) {
+                        this.prev(); // Arraste para a direita
+                    } else {
+                        this.next(); // Arraste para a esquerda
+                    }
+                } else {
+                    // Se não foi um arraste válido, voltar à posição original
+                    this.updateCarousel();
+                }
                 
-                const handleMouseUp = (e) => {
-                    endX = e.clientX;
-                    this.handleSwipe(startX, endX);
-                    document.removeEventListener('mouseup', handleMouseUp);
+                // Resetar offset
+                this.dragOffset = 0;
+            }
+            
+            getClientX(e) {
+                return e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            }
+            
+            updateSlidePositions() {
+                // Calcular fator de deslocamento baseado no dragOffset
+                const slideWidth = this.carousel.offsetWidth;
+                const dragFactor = this.dragOffset / slideWidth;
+                
+                // Aplicar transformações baseadas no arraste
+                this.slides.forEach((slide, index) => {
+                    const basePosition = this.getBasePosition(index);
+                    const targetPosition = this.getTargetPosition(index, dragFactor);
+                    
+                    // Interpolar entre a posição base e a posição alvo
+                    const interpolatedPosition = this.interpolatePosition(basePosition, targetPosition, Math.abs(dragFactor));
+                    
+                    this.applyTransform(slide, interpolatedPosition);
+                });
+            }
+            
+            getBasePosition(index) {
+                // Retorna a posição base de cada slide (sem arraste)
+                if (index === 0) return { left: 0, scale: 0.85, z: -150, rotateY: 10, opacity: 0.7 };
+                if (index === 1) return { left: 10, scale: 1, z: 0, rotateY: 0, opacity: 1 };
+                if (index === 2) return { left: 45, scale: 0.85, z: -150, rotateY: -10, opacity: 0.7 };
+                return { left: 0, scale: 1, z: 0, rotateY: 0, opacity: 1 };
+            }
+            
+            getTargetPosition(index, dragFactor) {
+                // Determina a posição alvo baseada na direção do arraste
+                if (dragFactor > 0) {
+                    // Arraste para a direita (próximo slide)
+                    if (index === 0) return { left: -45, scale: 0.7, z: -200, rotateY: 20, opacity: 0.4 };
+                    if (index === 1) return { left: 0, scale: 0.85, z: -150, rotateY: 10, opacity: 0.7 };
+                    if (index === 2) return { left: 10, scale: 1, z: 0, rotateY: 0, opacity: 1 };
+                } else {
+                    // Arraste para a esquerda (slide anterior)
+                    if (index === 0) return { left: 10, scale: 1, z: 0, rotateY: 0, opacity: 1 };
+                    if (index === 1) return { left: 45, scale: 0.85, z: -150, rotateY: -10, opacity: 0.7 };
+                    if (index === 2) return { left: 90, scale: 0.7, z: -200, rotateY: -20, opacity: 0.4 };
+                }
+                return this.getBasePosition(index);
+            }
+            
+            interpolatePosition(start, end, factor) {
+                // Interpola linearmente entre duas posições
+                return {
+                    left: start.left + (end.left - start.left) * factor,
+                    scale: start.scale + (end.scale - start.scale) * factor,
+                    z: start.z + (end.z - start.z) * factor,
+                    rotateY: start.rotateY + (end.rotateY - start.rotateY) * factor,
+                    opacity: start.opacity + (end.opacity - start.opacity) * factor
                 };
             }
             
-            handleSwipe(startX, endX) {
-                const diffX = startX - endX;
-                const minSwipeDistance = 50; // Distância mínima para considerar um swipe
-                
-                if (Math.abs(diffX) > minSwipeDistance) {
-                    if (diffX > 0) {
-                        this.next(); // Swipe para a esquerda
-                    } else {
-                        this.prev(); // Swipe para a direita
-                    }
-                }
+            applyTransform(slide, position) {
+                slide.style.left = `${position.left}%`;
+                slide.style.transform = `scale(${position.scale}) translateZ(${position.z}px) rotateY(${position.rotateY}deg)`;
+                slide.style.opacity = position.opacity;
             }
             
             createDots() {
@@ -879,6 +794,12 @@
                 this.slides[2].querySelector('img').src = `images/${this.imagePrefix}0${nextIndex + 1}.webp`;
                 this.slides[2].querySelector('img').alt = `${this.imagePrefix === 'cliente' ? 'Cliente' : 'Artista'} Holofly 0${nextIndex + 1}`;
                 
+                // Aplicar transformações base
+                this.slides.forEach((slide, index) => {
+                    const position = this.getBasePosition(index);
+                    this.applyTransform(slide, position);
+                });
+                
                 // Atualizar dots
                 const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
                 dots.forEach((dot, index) => {
@@ -899,6 +820,21 @@
             goToSlide(index) {
                 this.currentIndex = index;
                 this.updateCarousel();
+            }
+            
+            showDragIndicator() {
+                if (this.dragIndicator) {
+                    this.dragIndicator.classList.add('show');
+                    setTimeout(() => {
+                        this.hideDragIndicator();
+                    }, 3000);
+                }
+            }
+            
+            hideDragIndicator() {
+                if (this.dragIndicator) {
+                    this.dragIndicator.classList.remove('show');
+                }
             }
         }
 
@@ -925,11 +861,7 @@
 
         // Inicializar carrosseis quando o DOM estiver carregado
         document.addEventListener('DOMContentLoaded', function() {
-            // Carrosseis Desktop
-            new DesktopCarousel('carousel1-desktop');
-            new DesktopCarousel('carousel2-desktop');
-            
-            // Carrosseis Mobile - Cover Flow
+            // Carrosseis Mobile - Cover Flow Fluido
             new MobileCarousel('carousel1-mobile', 'cliente', 5);
             new MobileCarousel('carousel2-mobile', 'artista', 5);
             

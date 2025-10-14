@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holofly</title>
 
-        <!-- Meta Tags para Redes Sociais (Open Graph) -->
+    <!-- Meta Tags para Redes Sociais (Open Graph) -->
     <meta property="og:title" content="Holofly - Um novo mundo de oportunidades">
     <meta property="og:description" content="Conectamos pequenos empreendedores a criadores de conteúdo, ilustradores e profissionais talentosos para transformar ideias em vídeos de impacto.">
-    <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpeg">
+    <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpg">
     <meta property="og:url" content="https://holofly.com.br">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Holofly">
@@ -22,8 +22,9 @@
     <!-- Meta Tags padrão -->
     <meta name="description" content="Holofly conecta pequenos empreendedores a talentos criativos. Encontre criadores de conteúdo, ilustradores e transforme suas ideias em realidade.">
     <meta name="keywords" content="holofly, criadores de conteúdo, vídeos, empreendedores, marketing digital">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Alteração 1: Substituir Poppins por Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="icons/favicon3232.png" type="image/x-icon">
     <style>
@@ -31,7 +32,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            /* Alteração 1: Substituir Poppins por Inter */
+            font-family: 'Inter', sans-serif;
         }
         
         body {
@@ -45,7 +47,7 @@
         .section {
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 20px;
             position: relative;
@@ -57,6 +59,8 @@
             justify-content: space-between;
             width: 100%;
             max-width: 1200px;
+            z-index: 2;
+            position: relative;
         }
         
         .text-content {
@@ -68,6 +72,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            position: relative;
         }
         
         .section-image {
@@ -92,6 +97,10 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
+            position: absolute;
+            width: 100%;
+            /* Alteração 2: Header transparente no mobile */
+            background-color: transparent;
         }
         
         .logo {
@@ -127,36 +136,36 @@
         }
 
         .menu-toggle span:nth-child(1) {
-    transform-origin: center;
-}
+            transform-origin: center;
+        }
 
-.menu-toggle span:nth-child(2) {
-    transform-origin: center;
-}
+        .menu-toggle span:nth-child(2) {
+            transform-origin: center;
+        }
 
-.menu-toggle span:nth-child(3) {
-    transform-origin: center;
-}
+        .menu-toggle span:nth-child(3) {
+            transform-origin: center;
+        }
 
-.menu-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
 
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
 
-.menu-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
         
         .nav-menu {
             position: fixed;
             top: 0;
             right: -100%;
             width: 250px;
-            height: 100vh;
-            background-color: #000;
+            height: 32vh;
+            background-color: #000000c0;
             padding: 80px 20px 20px;
             transition: right 0.3s ease;
             z-index: 999;
@@ -268,10 +277,15 @@
             height: 60px;
         }
         
+        /* Alteração 4: Rodapé sobre a imagem de fundo */
         .page-footer {
-            background-color: #000;
+            background-color: transparent;
             padding: 2rem 1rem;
             border-top: 0dvb solid #333;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 3;
         }
 
         .footer-content {
@@ -366,48 +380,6 @@
             border-radius: 10px;
         }
 
-        .carousel-mobile {
-            position: relative;
-            width: 100vw; 
-            max-width: 110%;
-            height: 600px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            margin-left: -20px; 
-            margin-right: -20px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; 
-            scrollbar-width: none; 
-            -ms-overflow-style: none; 
-        }
-
-        .carousel-mobile::-webkit-scrollbar {
-            display: none;
-        }
-
-        .carousel-mobile-track {
-            display: flex;
-            height: 100%;
-            width: max-content;
-        }
-
-        .carousel-mobile-slide {
-            flex: 0 0 100vw;
-            height: 100%;
-            scroll-snap-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .carousel-mobile-slide img {
-            width: 80%;
-            height: 80%;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
 
         .carousel-dots {
             display: flex;
@@ -430,10 +402,235 @@
             transform: scale(1.2);
         }
 
-        .carousel-desktop,
-        .carousel-mobile {
+        .carousel-desktop {
             display: none;
         }
+
+        /* Background images for mobile */
+        .section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        #section1 .section-bg {
+            background-image: url('images/back-cliente.webp');
+        }
+
+        #section2 .section-bg {
+            background-image: url('images/back-artista.webp');
+        }
+
+        /* Alteração 3: Área em branco entre as seções */
+        .white-space {
+            background-color: #fff;
+            color: #000;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .white-space-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .white-space h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Novos estilos para animações */
+        .animated-text {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animated-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animated-delay-1 {
+            transition-delay: 0.3s;
+        }
+
+        .animated-delay-2 {
+            transition-delay: 0.6s;
+        }
+
+        .animated-delay-3 {
+            transition-delay: 0.9s;
+        }
+
+        /* CORREÇÃO 1: Ajuste da formatação da primeira frase */
+        .title-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        
+        .apareca-text {
+            display: inline;
+            margin-right: 5px;
+        }
+        
+        .resto-text {
+            display: inline;
+        }
+        
+        /* CORREÇÃO 2: Ajuste do rodapé para ficar na parte mais baixa */
+        body {
+            position: relative;
+            min-height: 100vh;
+            padding-bottom: 200px; /* Espaço para o rodapé */
+        }
+        
+        .page-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Mobile-specific styles */
+@media (max-width: 768px) {
+    .section {
+        padding: 0;
+    }
+    
+    .section-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        min-height: 100vh;
+        justify-content: space-between;
+    }
+    
+    .text-content {
+        padding-right: 0;
+        margin-bottom: 0;
+        order: 1;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: flex-start;
+    }
+    
+    .image-content {
+        order: 2;
+        width: 100%;
+        display: none; /* esconde carrossel no mobile */
+    }
+    
+    .section-title {
+        text-align: left;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        margin-top: -10px;
+    }
+    
+    .section-title span:first-child {
+        font-size: 2.0rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-text span {
+        display: block;
+        margin: 2px 0;
+    }
+
+    /* ===== Ajuste de posição responsiva dos botões de download ===== */
+    .download-section {
+        margin-top: 2rem;
+    }
+
+    .download-title {
+        font-size: 1.2rem;
+        color: #1A1A1A;
+        margin-bottom: 0.8rem;
+        text-align: left;
+    }
+
+    .download-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 1rem;
+        flex-wrap: nowrap;
+    }
+
+    .download-buttons img {
+        height: 50px;
+    }
+
+    /* Seção 1 - Cliente */
+    #section1 .download-section {
+        margin-top: 120%;
+        margin-bottom: 0;
+    }
+
+    /* Seção 2 - Artista */
+    #section2 .download-section {
+        margin-top: -20%;
+        margin-bottom: 0;
+    }
+
+    /* Rodapé no mobile */
+    .page-footer {
+        background-color: #969595;
+    }
+
+    /* Ajustes de textos */
+    .title-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    
+    .apareca-text {
+        display: inline;
+        color: #1A1A1A;
+        margin-right: 5px;
+    }
+    
+    .resto-text {
+        display: inline;
+        margin-top: -2%;
+        color: #1C1C1E;
+    }
+
+    /* Outros ajustes menores de espaçamento */
+    #section1 .text-content {
+        padding-top: 80px;
+    }
+
+    #section2 .text-content {
+        padding-top: 60px;
+    }
+
+    .white-space {
+        padding: 40px 20px;
+    }
+
+    .white-space h2 {
+        font-size: 1.8rem;
+    }
+}
+
 
         @media (min-width: 769px) {
             .carousel-desktop {
@@ -451,47 +648,36 @@
             .image-content {
                 order: 2;
             }
-        }
-
-        @media (max-width: 768px) {
-            .carousel-mobile {
+            
+            .section-bg {
+                display: none; /* Hide background images on desktop */
+            }
+            
+            /* Desktop text styling */
+            #section1 .section-title {
+                color: #fff;
+            }
+            
+            /* Alteração 2: Header com fundo preto no desktop */
+            header {
+                background-color: #000;
+                position: relative;
+            }
+            
+            /* Em desktop, ambas as seções compartilham a mesma estrutura */
+            #section1 .download-section,
+            #section2 .download-section {
                 display: block;
             }
             
-            .section-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .text-content {
-                padding-right: 0;
-                margin-bottom: 2rem;
-                order: 2;
-            }
-            
-            .image-content {
-                order: 1;
-                margin-bottom: 2rem;
-                width: 100%;
-            }
-            
-            .section-title {
-                text-align: left;
-            }
-            
-            .footer-text span {
-                display: block;
-                margin: 2px 0;
-            }
-            
-            .download-buttons {
-                justify-content: center;
-            }
-            
-            .download-buttons.mobile {
+            #section1 .download-buttons.desktop,
+            #section2 .download-buttons.desktop {
                 display: flex;
-                justify-content: center;
-                gap: 15px;
+            }
+            
+            #section1 .download-buttons.mobile,
+            #section2 .download-buttons.mobile {
+                display: none;
             }
         }
     </style>
@@ -502,40 +688,49 @@
             <span class="logo-text">HOLOFLY</span>
             <img src="icons/logo.png" alt="HOLOFLY" class="logo-img">
         </a>
-<div class="menu-toggle" id="menuToggle">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
     
     <nav class="nav-menu" id="navMenu">
         <ul>
-            <li><a href="sobre">Sobre a Holofly</a></li>
-            <li><a href="perguntasfrequentes">Perguntas Frequentes</a></li>
-            <li><a href="contato">Contato</a></li>
+            <li><a href="sobre/index.html">Sobre a Holofly</a></li>
+            <li><a href="perguntasfrequentes/index.html">Perguntas Frequentes</a></li>
+            <li><a href="contato/index.html">Contato</a></li>
         </ul>
     </nav>
     
     <div class="overlay" id="overlay"></div>
 
     <div class="section" id="section1">
+        <div class="section-bg"></div>
         <div class="section-content">
             <div class="text-content">
-                <h1 class="section-title">
-                    Apareça! <span class="bold-text">Peça vídeos para promover o seu negócio. ou o que você quiser.</span>
-                </h1>
-                
-                <h3 class="download-title">Baixe o app como Cliente:</h3>
-                <div class="download-buttons mobile" id="download-buttons-1">
-                    <a href="#" class="store-link" data-section="1">
-                        <img src="icons/pre-apple.svg" alt="Disponível na App Store" />
-                    </a>
-                    <a href="#" class="store-link" data-section="1">
-                        <img src="icons/pre-google.png" alt="Disponível no Google Play" />
-                    </a>
+                <div>
+                    <h1 class="section-title">
+                        <!-- CORREÇÃO 1: Ajuste da formatação da primeira frase -->
+                        <div class="title-container">
+                            <span class="animated-text apareca-text" id="apareca-text">Apareça.</span>
+                            <span class="animated-text animated-delay-1 resto-text" id="resto-text-1">Peça vídeos, promova o que você quiser.</span>
+                        </div>
+                    </h1>
                 </div>
-                <div class="soon-message" id="soon-message-1">Disponível em breve*</div>
+                
+                <div class="text-content download-section">
+                    <h3 class="download-title">Baixe como Cliente:</h3>
+                    <div class="download-buttons desktop" id="download-buttons-2">
+                        <a href="#" class="store-link" data-section="2">
+                            <img src="icons/pre-apple.svg" alt="Disponível na App Store" />
+                        </a>
+                        <a href="#" class="store-link" data-section="2">
+                            <img src="icons/pre-google.png" alt="Disponível no Google Play" />
+                        </a>
+                    </div>
+                    <div class="soon-message" id="soon-message-2">Disponível em breve*</div>
+                </div>
             </div>
             <div class="image-content">
                 <div class="carousel-desktop" id="carousel1-desktop">
@@ -559,120 +754,85 @@
                     <div class="carousel-dots">
                     </div>
                 </div>
-
-                <div class="carousel-mobile" id="carousel1-mobile">
-                    <div class="carousel-mobile-track">
-                        <div class="carousel-mobile-slide" data-index="0">
-                            <img src="images/cliente01.webp" alt="Cliente Holofly 01">
-                        </div>
-                        <div class="carousel-mobile-slide" data-index="1">
-                            <img src="images/cliente02.webp" alt="Cliente Holofly 02">
-                        </div>
-                        <div class="carousel-mobile-slide" data-index="2">
-                            <img src="images/cliente03.webp" alt="Cliente Holofly 03">
-                        </div>
-                        <div class="carousel-mobile-slide" data-index="3">
-                            <img src="images/cliente04.webp" alt="Cliente Holofly 04">
-                        </div>
-                        <div class="carousel-mobile-slide" data-index="4">
-                            <img src="images/cliente05.webp" alt="Cliente Holofly 05">
-                        </div>
-                    </div>
-                    <div class="carousel-dots">
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
+    
+    <!-- Alteração 3: Área em branco entre as seções -->
+    <div class="white-space">
+        <div class="white-space-content">
+            <h2>
+                <span class="animated-text" id="monetize-text">Ou crie e ganhe. Aqui sua criatividade vale dinheiro.</span>
+            </h2>
         </div>
     </div>
      
-    <div class="section" id="section2">
-        <div class="section-content">
-            <div class="text-content">
-                <h1 class="section-title">
-                    Ou, monetize! <span class="bold-text">Aqui sua criatividade te rende uma grana extra.</span>
-                </h1>
-                
-                <h3 class="download-title">Baixe o app como Artista:</h3>
-                <div class="download-buttons mobile" id="download-buttons-2">
-                    <a href="#" class="store-link" data-section="2">
-                        <img src="icons/pre-apple.svg" alt="Disponível na App Store" />
-                    </a>
-                    <a href="#" class="store-link" data-section="2">
-                        <img src="icons/pre-google.png" alt="Disponível no Google Play" />
-                    </a>
-                </div>
-                <div class="soon-message" id="soon-message-2">Disponível em breve*</div>
+   <div class="section" id="section2">
+    <div class="section-bg"></div>
+    <div class="section-content">
+        <!-- Área "Baixe como Artista" - desktop -->
+        <div class="text-content download-section">
+            <h3 class="download-title">Baixe como Artista:</h3>
+            <div class="download-buttons desktop" id="download-buttons-2">
+                <a href="#" class="store-link" data-section="2">
+                    <img src="icons/pre-apple.svg" alt="Disponível na App Store" />
+                </a>
+                <a href="#" class="store-link" data-section="2">
+                    <img src="icons/pre-google.png" alt="Disponível no Google Play" />
+                </a>
             </div>
-            <div class="image-content">
-                <div class="carousel-desktop" id="carousel2-desktop">
-                    <div class="carousel-desktop-track">
-                        <div class="carousel-desktop-slide active" data-index="0">
-                            <img src="images/artista01.webp" alt="Artista Holofly 01">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="1">
-                            <img src="images/artista02.webp" alt="Artista Holofly 02">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="2">
-                            <img src="images/artista03.webp" alt="Artista Holofly 03">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="3">
-                            <img src="images/artista04.webp" alt="Artista Holofly 04">
-                        </div>
-                        <div class="carousel-desktop-slide" data-index="4">
-                            <img src="images/artista05.webp" alt="Artista Holofly 05">
-                        </div>
+            <div class="soon-message" id="soon-message-2">Disponível em breve*</div>
+        </div>
+
+        <div class="image-content">
+            <div class="carousel-desktop" id="carousel2-desktop">
+                <div class="carousel-desktop-track">
+                    <div class="carousel-desktop-slide active" data-index="0">
+                        <img src="images/artista01.webp" alt="Artista Holofly 01">
                     </div>
-                    <div class="carousel-dots">
+                    <div class="carousel-desktop-slide" data-index="1">
+                        <img src="images/artista02.webp" alt="Artista Holofly 02">
+                    </div>
+                    <div class="carousel-desktop-slide" data-index="2">
+                        <img src="images/artista03.webp" alt="Artista Holofly 03">
+                    </div>
+                    <div class="carousel-desktop-slide" data-index="3">
+                        <img src="images/artista04.webp" alt="Artista Holofly 04">
+                    </div>
+                    <div class="carousel-desktop-slide" data-index="4">
+                        <img src="images/artista05.webp" alt="Artista Holofly 05">
                     </div>
                 </div>
-
-                <div class="carousel-mobile" id="carousel2-mobile">
-                    <div class="carousel-mobile-track">
-                        <div class="carousel-mobile-slide" data-index="0">
-                            <img src="images/artista01.webp" alt="Artista Holofly 01">
-                        </div>
-                        <div class="carousel-mobile-slide" data-index="1">
-                            <img src="images/artista02.webp" alt="Artista Holofly 02">
-                        </div>
-                        <div class="carousel-mobile-slide" data-index="2">
-                            <img src="images/artista03.webp" alt="Artista Holofly 03">
-                        </div>
-                        <div class="carousel-mobile-slide" data-index="3">
-                            <img src="images/artista04.webp" alt="Artista Holofly 04">
-                        </div>
-                        <div class="carousel-mobile-slide" data-index="4">
-                            <img src="images/artista05.webp" alt="Artista Holofly 05">
-                        </div>
-                    </div>
-                    <div class="carousel-dots">
-                    </div>
+                <div class="carousel-dots">
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <footer class="page-footer">
-        <div class="footer-content">
-            <div class="social-icons-footer">
-                <a href="https://www.facebook.com/profile.php?id=61580622752588" target="_blank">
-                    <img src="icons/Facebook_Logo_Primary.png" alt="Facebook">
-                </a>
-                <a href="https://instagram.com/holoflybrasil" target="_blank">
-                    <img src="icons/Instagram_Glyph_White.png" alt="Instagram">
-                </a>
+        <!-- Alteração 4: Rodapé sobre a imagem de fundo -->
+        <footer class="page-footer">
+            <div class="footer-content">
+                <div class="social-icons-footer">
+                    <a href="https://www.facebook.com/profile.php?id=61580622752588" target="_blank">
+                        <img src="icons/Facebook_Logo_Primary.png" alt="Facebook">
+                    </a>
+                    <a href="https://instagram.com/holoflybrasil" target="_blank">
+                        <img src="icons/Instagram_Glyph_White.png" alt="Instagram">
+                    </a>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="termos/index.html">Termos de uso</a> 
+                    <a href="politica/index.html">Política de privacidade</a>
+                </div>
+                <p class="footer-text">
+                    <span>&copy; 2025 Holofly. Todos os direitos reservados.</span>
+                    <span>CNPJ: 59.240.195/0001-90</span>
+                    <span>Rua Santa Luzia, 651, 25º andar, Rio de Janeiro - RJ, CEP: 20030-041</span>
+                </p>
             </div>
-            
-            <div class="footer-links">
-                <a href="termos/">Termos de uso</a> 
-                <a href="politica/">Política de privacidade</a>
-            </div>
-            <p class="footer-text">
-                <span>&copy; 2025 Holofly. Todos os direitos reservados.</span>
-                <span>CNPJ: 59.240.195/0001-90</span>
-                <span>Rua Santa Luzia, 651, 25º andar, Rio de Janeiro - RJ, CEP: 20030-041</span>
-            </p>
-        </div>
-    </footer>
+        </footer>
     
     <script>
         const menuToggle = document.getElementById('menuToggle');
@@ -776,77 +936,6 @@
             }
         }
 
-        class MobileCarousel {
-            constructor(carouselId, totalSlides) {
-                this.carousel = document.getElementById(carouselId);
-                this.track = this.carousel.querySelector('.carousel-mobile-track');
-                this.slides = this.carousel.querySelectorAll('.carousel-mobile-slide');
-                this.dotsContainer = this.carousel.querySelector('.carousel-dots');
-                
-                this.totalSlides = totalSlides;
-                this.currentIndex = 0;
-                
-                this.init();
-            }
-            
-            init() {
-                this.createDots();
-                
-                this.setupScrollSnap();
-                
-                this.updateDots();
-            }
-            
-            setupScrollSnap() {
-                this.carousel.addEventListener('scroll', () => {
-                    this.handleScroll();
-                });
-                
-                this.carousel.addEventListener('touchend', () => {
-                    setTimeout(() => this.handleScroll(), 100);
-                });
-            }
-            
-            handleScroll() {
-                const scrollLeft = this.carousel.scrollLeft;
-                const slideWidth = this.carousel.offsetWidth;
-                const newIndex = Math.round(scrollLeft / slideWidth);
-                
-                if (newIndex !== this.currentIndex) {
-                    this.currentIndex = newIndex;
-                    this.updateDots();
-                }
-            }
-            
-            createDots() {
-                this.dotsContainer.innerHTML = '';
-                for (let i = 0; i < this.totalSlides; i++) {
-                    const dot = document.createElement('span');
-                    dot.className = 'carousel-dot';
-                    if (i === this.currentIndex) dot.classList.add('active');
-                    dot.addEventListener('click', () => this.goToSlide(i));
-                    this.dotsContainer.appendChild(dot);
-                }
-            }
-            
-            updateDots() {
-                const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === this.currentIndex);
-                });
-            }
-            
-            goToSlide(index) {
-                this.currentIndex = index;
-                const slideWidth = this.carousel.offsetWidth;
-                this.carousel.scrollTo({
-                    left: slideWidth * index,
-                    behavior: 'smooth'
-                });
-                this.updateDots();
-            }
-        }
-
         function setupStoreLinks() {
             const storeLinks = document.querySelectorAll('.store-link');
             
@@ -865,21 +954,46 @@
             });
         }
 
+        // Função para animação de entrada
+        function animateElements() {
+            // Verificar se já foi animado antes (usando sessionStorage)
+            if (!sessionStorage.getItem('holoflyAnimated')) {
+                // Primeira seção
+                setTimeout(() => {
+                    document.getElementById('apareca-text').classList.add('show');
+                }, 400);
+                
+                setTimeout(() => {
+                    document.getElementById('resto-text-1').classList.add('show');
+                    document.getElementById('download-title-1').classList.add('show');
+                    document.getElementById('download-buttons-1').classList.add('show');
+                }, 800);
+                
+                // Segunda seção
+                setTimeout(() => {
+                    document.getElementById('monetize-text').classList.add('show');
+                }, 1500);
+                
+                // Marcar como animado para não repetir na mesma sessão
+                sessionStorage.setItem('holoflyAnimated', 'true');
+            } else {
+                // Se já foi animado, mostrar tudo imediatamente
+                const animatedElements = document.querySelectorAll('.animated-text');
+                animatedElements.forEach(el => {
+                    el.classList.add('show');
+                });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             new DesktopCarousel('carousel1-desktop');
             new DesktopCarousel('carousel2-desktop');
             
-            new MobileCarousel('carousel1-mobile', 5);
-            new MobileCarousel('carousel2-mobile', 5);
-            
             setupStoreLinks();
+            
+            // Iniciar animações
+            animateElements();
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-

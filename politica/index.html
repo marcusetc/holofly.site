@@ -86,6 +86,18 @@
       color: #ddd;
     }
 
+    /* Link de exclusão */
+    .delete-link {
+      color: #1E90FF;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .delete-link:hover {
+      text-decoration: underline;
+      color: #63B3ED;
+    }
+
     /* Link de voltar */
     .back-link {
       display: block;
@@ -202,7 +214,8 @@
     <p class="paragraph">
       • Acessar seus dados.<br>
       • Corrigir informações.<br>
-      • Solicitar exclusão da conta.<br>
+      • Solicitar exclusão de conta.<br>
+      • <a href="excluir-conta.html" class="delete-link">Como excluir minha conta?</a>
     </p>
 
     <h2 class="section-title">5. Armazenamento local</h2>
@@ -233,6 +246,7 @@ Os valores recebidos pelos artistas são transferidos de forma interna, via PIX,
     <div class="footer-content">
       <div class="footer-links">
         <a href="../termos/">Termos de uso</a> 
+        <a href="excluir-conta.html">Excluir minha conta</a>
       </div>
       <p class="footer-text">
         <span>&copy; 2025 Holofly. Todos os direitos reservados.</span>
@@ -242,5 +256,4 @@ Os valores recebidos pelos artistas são transferidos de forma interna, via PIX,
     </div>
   </footer>
 </body>
-
 </html>

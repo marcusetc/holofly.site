@@ -238,19 +238,11 @@
         }
         
         .soon-message {
-            color: #1A1A1A;
-            font-size: 0.9rem;
+            color: #fff;
+            font-size: 1.2rem;
             margin-top: 10px;
             text-align: left;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            height: 0;
-            overflow: hidden;
-        }
-        
-        .soon-message.show {
-            opacity: 1;
-            height: auto;
+            font-weight: bold;
         }
         
         #section4 {
@@ -721,19 +713,10 @@
                     </h1>
                 </div>
                 
-<div class="text-content download-section">
-    <h3 class="download-title">Baixe como Cliente:</h3>
-    <div class="download-buttons desktop" id="download-buttons-1">
-        <a href="#" class="store-link" data-section="1">
-            <img src="icons/pre-apple.svg" alt="Disponível na App Store" />
-        </a>
-        <a href="#" class="store-link" data-section="1">
-            <img src="icons/pre-google.png" alt="Disponível no Google Play" />
-        </a>
-    </div>
-    <div class="soon-message" id="soon-message-1">Disponível em breve*</div>
-</div>
-
+                <div class="text-content download-section">
+                    <h3 class="download-title">Baixe como Cliente:</h3>
+                    <div class="soon-message" id="soon-message-1">Disponível em breve*</div>
+                </div>
             </div>
             <div class="image-content">
                 <div class="carousel-desktop" id="carousel1-desktop">
@@ -774,19 +757,10 @@
     <div class="section-bg"></div>
     <div class="section-content">
         <!-- Área "Baixe como Artista" - desktop -->
-<div class="text-content download-section">
-    <h3 class="download-title">Baixe como Artista:</h3>
-    <div class="download-buttons desktop" id="download-buttons-2">
-        <a href="#" class="store-link" data-section="2">
-            <img src="icons/pre-apple.svg" alt="Disponível na App Store" />
-        </a>
-        <a href="#" class="store-link" data-section="2">
-            <img src="icons/pre-google.png" alt="Disponível no Google Play" />
-        </a>
-    </div>
-    <div class="soon-message" id="soon-message-2">Disponível em breve*</div>
-</div>
-
+        <div class="text-content download-section">
+            <h3 class="download-title">Baixe como Artista:</h3>
+            <div class="soon-message" id="soon-message-2">Disponível em breve*</div>
+        </div>
 
         <div class="image-content">
             <div class="carousel-desktop" id="carousel2-desktop">
@@ -940,24 +914,6 @@
             }
         }
 
-        function setupStoreLinks() {
-            const storeLinks = document.querySelectorAll('.store-link');
-            
-            storeLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const section = this.getAttribute('data-section');
-                    const message = document.getElementById(`soon-message-${section}`);
-                    
-                    message.classList.add('show');
-                    
-                    setTimeout(() => {
-                        message.classList.remove('show');
-                    }, 3000);
-                });
-            });
-        }
-
         // Função para animação de entrada
         function animateElements() {
             // Verificar se já foi animado antes (usando sessionStorage)
@@ -969,8 +925,7 @@
                 
                 setTimeout(() => {
                     document.getElementById('resto-text-1').classList.add('show');
-                    document.getElementById('download-title-1').classList.add('show');
-                    document.getElementById('download-buttons-1').classList.add('show');
+                    document.getElementById('soon-message-1').classList.add('show');
                 }, 800);
                 
                 // Segunda seção
@@ -978,11 +933,15 @@
                     document.getElementById('monetize-text').classList.add('show');
                 }, 1500);
                 
+                setTimeout(() => {
+                    document.getElementById('soon-message-2').classList.add('show');
+                }, 1800);
+                
                 // Marcar como animado para não repetir na mesma sessão
                 sessionStorage.setItem('holoflyAnimated', 'true');
             } else {
                 // Se já foi animado, mostrar tudo imediatamente
-                const animatedElements = document.querySelectorAll('.animated-text');
+                const animatedElements = document.querySelectorAll('.animated-text, .soon-message');
                 animatedElements.forEach(el => {
                     el.classList.add('show');
                 });
@@ -993,13 +952,9 @@
             new DesktopCarousel('carousel1-desktop');
             new DesktopCarousel('carousel2-desktop');
             
-            setupStoreLinks();
-            
             // Iniciar animações
             animateElements();
         });
     </script>
 </body>
 </html>
-
-

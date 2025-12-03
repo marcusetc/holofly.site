@@ -188,15 +188,52 @@
         }
         
         .about-content {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 100px auto 50px;
             padding: 0 20px;
         }
         
-        .content-container {
-            display: flex;
+        .cards-container {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 30px;
-            align-items: flex-start;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            background: #111;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .card-content {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .card-content p {
+            margin-bottom: 1.5rem; 
+        }
+        
+        .card-content ul {
+            margin-left: 20px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* ESTILOS MODIFICADOS PARA O CARD FINAL */
+        .profile-container {
             background: #111;
             border-radius: 10px;
             padding: 30px;
@@ -204,7 +241,6 @@
         }
         
         .text-content {
-            flex: 1;
             line-height: 1.6;
             font-size: 1.1rem;
         }
@@ -214,8 +250,8 @@
         }
         
         .image-content {
-            flex: 0 0 300px;
             text-align: center;
+            margin: 30px 0;
         }
         
         .profile-image {
@@ -235,16 +271,6 @@
         }
 
         @media (max-width: 768px) {
-            .content-container {
-                flex-direction: column;
-            }
-            
-            .image-content {
-                flex: none;
-                width: 100%;
-                order: -1;
-            }
-            
             .profile-image {
                 max-width: 200px;
             }
@@ -321,8 +347,92 @@
     <div class="overlay" id="overlay"></div>
 
     <div class="about-content">
-        <div class="content-container">
+        <div class="cards-container">
+            <!-- Card 1: Nossa Missão -->
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Nossa missão: Conectar quem precisa aparecer e quem sabe como mostrar.</strong></p>
+                    <p>A ideia nasceu da vontade de juntar o Brasil empreendedor, com o Brasil criativo. Acreditamos no potencial dessa mistura, e buscamos tornar esse processo de produção de mídias promocionais em algo mais dinâmico, acessível e justo.</p>
+                    <p>A Holofly é a ponte entre esses dois mundos.</p>
+                    <p>É para o empreendedor que quer se destacar em suas redes sociais ou mídias externas (OOH). E é para o criador de conteúdo, que pode transformar sua habilidade em um "pé de meia", ganhando um extra fazendo aquilo que manda bem.</p>
+                </div>
+            </div>
+            
+            <!-- Card 2: Como Funciona -->
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Como funciona: A engrenagem da máquina.</strong></p>
+                    <p>Do pedido à aprovação final, criamos um processo simples, seguro e transparente para garantir que quem pede receba do jeitinho que precisa e quem faz tenha a segurança do recebimento do pagamento.</p>
+                    
+                    <h3>Faça seu pedido: Rápido e direto ao ponto.</h3>
+                    <ul>
+                        <li><strong>Descreva sua ideia:</strong> Escreva um texto claro explicando o objetivo do vídeo, com todos os detalhes pertinentes.</li>
+                        <li><strong>Adicione referências:</strong> Anexe até 3 imagens.</li>
+                        <li><strong>Defina o prazo:</strong> Escolha o tempo de entrega que melhor atende você.</li>
+                        <li><strong>Escolha quem irá produzir:</strong> Solicite à plataforma ou selecione diretamente um dos perfis exibidos nos Destaques do Dia.</li>
+                    </ul>
+                    
+                    <h3>2.2. Pagamento Seguro: Você tem o Controle</h3>
+                    <ul>
+                        <li>O valor do pedido é reservado em seu cartão de crédito cadastrado no app.</li>
+                        <li>A cobrança só é efetivamente capturada após você confirmar e atribuir o pedido a um profissional criativo.</li>
+                    </ul>
+                    
+                    <h3>2.3. Colaboração em tempo real: Aprovação antes do final</h3>
+                    <p>Para garantir que o vídeo está no caminho certo:</p>
+                    <ul>
+                        <li>O criativo tem até a metade do prazo para enviar uma prévia visual (através de prints) do trabalho.</li>
+                        <li>Você analisa e pode enviar observações pontuais para ajustes.</li>
+                    </ul>
+                    
+                    <h3>2.4. Entrega e liberacão: Conclusão com Segurança</h3>
+                    <ul>
+                        <li>Com sua observação o criativo finaliza e envia o arquivo final dentro do prazo combinado.</li>
+                        <li>Após a entrega, o valor é liberado em 3 dias.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Card 3: Nossa Aposta -->
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Nossa aposta: Vídeos feitos por pessoas, para pessoas.</strong></p>
+                    <p>Em um mundo cada vez mais automatizado, nós fazemos uma escolha consciente: acreditamos no toque humano.</p>
+                    <p>Cada vídeo que você recebe pela Holofly é uma criação única, gestada pela criatividade, empatia e intenção de um membro da nossa comunidade. Aqui, um ser humano de verdade se conecta com a sua história para dar vida à sua mensagem.</p>
+                    <p>Mais do que uma plataforma, somos uma comunidade vibrante de criadores. Pessoas talentosas que encontraram aqui um espaço para se conectar, colocar sua habilidade em prática e gerar uma renda extra fazendo o que amam.</p>
+                    <p>Este é o nosso propósito: ser a ponte que une a necessidade de se comunicar de forma autêntica ao talento de quem tem o dom de provocar emoções através da criatividade.</p>
+                </div>
+            </div>
+            
+            <!-- Card 4: Transparência -->
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Transparência: Um modelo justo para todos.</strong></p>
+                    <p>Acreditamos que a confiança também se constrói com transparência financeira. Por isso, somos claros sobre como sustentamos essa comunidade.</p>
+                    <p>Para manter a plataforma segura, estável e em constante evolução, cobramos uma pequena taxa de manutenção que varia de 12% a 14% sobre cada pedido concluído.</p>
+                    <p>Esse valor é essencial para:</p>
+                    <ul>
+                        <li>Garantir a qualidade do serviço e um suporte eficiente.</li>
+                        <li>Investir em segurança para proteger seus dados e transações.</li>
+                        <li>Fomentar o crescimento da nossa comunidade de criadores.</li>
+                    </ul>
+                    <p>É assim que seguimos firmes, melhorando a cada dia para ser um ambiente próspero e confiável para você e todos os envolvidos.</p>
+                </div>
+            </div>
+            
+            <!-- Card 5: Segurança -->
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Segurança.</strong></p>
+                    <p>Para garantir a segurança dos seus dados e a fluidez da sua experiência, confiamos em gigantes da tecnologia: Utilizamos o Google Firebase como nossa base de dados e infraestrutura, e o Mercado Pago para processar todas as transações financeiras de forma 100% segura.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 6: Quem Idealizou Tudo Isso -->
+        <div class="profile-container">
             <div class="text-content">
+                <p><strong>Por trás de tudo.</strong></p>
                 <p>Há um ano, a Holofly começava a nascer com um propósito claro: Conectar pequenos empreendedores a talentos criativos. Sempre acreditei no imenso potencial do brasileiro - nossa criatividade é um dos nossos maiores valores.</p>
                 
                 <p>Percebi que construir pontes entre quem batalha todos os dias e quem transforma arte em profissão seria uma das maneiras mais genuínas de criar oportunidades reais.</p>
@@ -330,16 +440,19 @@
                 <p>Meu compromisso é possibilitar que microempreendedores - como costureiras, ambulantes, cozinheiras e donos de pequenos estabelecimentos - encontrem criadores de conteúdo, ilustradores e outros profissionais talentosos. E que dessa união, possam surgir novos projetos, mais visibilidade e chances concretas de crescimento.</p>
 
                 <p>Juntos, estamos construindo um ecossistema onde talentos e oportunidades se encontram para prosperar.</p>
-
+                
+                <!-- Foto posicionada ao final do texto, antes da assinatura -->
+                <div class="image-content">
+                    <!-- Espaço reservado para a foto -->
+                    <div style="width: 100%; height: 300px; background-color: #333; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #777;">
+                        Foto a ser inserida
+                    </div>
+                    <!-- <img src="foto.png" alt="Marcus Guimarães - Fundador da Holofly" class="profile-image"> -->
+                </div>
 
                 <div class="signature">Marcus Guimarães.</div>
             </div>
-            
-            <div class="image-content">
-                <img src="foto.png" alt="Marcus Guimarães - Fundador da Holofly" class="profile-image">
-            </div>
         </div>
-        
     </div>
     
     <footer class="page-footer">
@@ -388,6 +501,3 @@
     </script>
 </body>
 </html>
-
-
-

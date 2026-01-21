@@ -8,7 +8,6 @@
 <meta name="theme-color" content="#000000">
     <title>Holofly</title>
 
-    <!-- Meta Tags para Redes Sociais (Open Graph) -->
     <meta property="og:title" content="Holofly - Um novo mundo de oportunidades">
     <meta property="og:description" content="Conectamos pequenos empreendedores a criadores de conteúdo, ilustradores e profissionais talentosos para transformar ideias em vídeos de impacto.">
     <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpeg">
@@ -35,7 +34,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Alteração 1: Substituir Poppins por Inter */
             font-family: 'Inter', sans-serif;
         }
         
@@ -102,7 +100,6 @@
             z-index: 1000;
             position: absolute;
             width: 100%;
-            /* Alteração 2: Header transparente no mobile */
             background-color: transparent;
         }
         
@@ -272,7 +269,6 @@
             height: 60px;
         }
         
-        /* Alteração 4: Rodapé sobre a imagem de fundo */
         .page-footer {
             background-color: transparent;
             padding: 2rem 1rem;
@@ -401,7 +397,6 @@
             display: none;
         }
 
-        /* Background images for mobile */
         .section-bg {
             position: absolute;
             top: 0;
@@ -421,7 +416,6 @@
             background-image: url('images/back-artista.webp');
         }
 
-        /* Alteração 3: Área em branco entre as seções */
         .white-space {
             background-color: #fff;
             color: #000;
@@ -466,7 +460,6 @@
             transition-delay: 0.9s;
         }
 
-        /* CORREÇÃO 1: Ajuste da formatação da primeira frase */
         .title-container {
             display: flex;
             flex-wrap: wrap;
@@ -482,7 +475,6 @@
             display: inline;
         }
         
-        /* CORREÇÃO 2: Ajuste do rodapé para ficar na parte mais baixa */
         body {
             position: relative;
             min-height: 100vh;
@@ -495,7 +487,6 @@
             width: 100%;
         }
 
-        /* Mobile-specific styles */
 @media (max-width: 768px) {
     .section {
         padding: 0;
@@ -524,7 +515,7 @@
     .image-content {
         order: 2;
         width: 100%;
-        display: none; /* esconde carrossel no mobile */
+        display: none;
     }
     
     .section-title {
@@ -546,7 +537,6 @@
         margin: 2px 0;
     }
 
-    /* ===== Ajuste de posição responsiva dos botões de download ===== */
     .download-section {
         margin-top: 2rem;
     }
@@ -572,24 +562,20 @@
         height: 50px;
     }
 
-    /* Seção 1 - Cliente */
     #section1 .download-section {
         margin-top: 120%;
         margin-bottom: 0;
     }
 
-    /* Seção 2 - Artista */
     #section2 .download-section {
         margin-top: -20%;
         margin-bottom: 0;
     }
 
-    /* Rodapé no mobile */
     .page-footer {
         background-color: #969595;
     }
 
-    /* Ajustes de textos */
     .title-container {
         display: flex;
         flex-wrap: wrap;
@@ -608,7 +594,6 @@
         color: #1C1C1E;
     }
 
-    /* Outros ajustes menores de espaçamento */
     #section1 .text-content {
         padding-top: 80px;
     }
@@ -645,21 +630,18 @@
             }
             
             .section-bg {
-                display: none; /* Hide background images on desktop */
+                display: none; 
             }
             
-            /* Desktop text styling */
             #section1 .section-title {
                 color: #fff;
             }
             
-            /* Alteração 2: Header com fundo preto no desktop */
             header {
                 background-color: #000;
                 position: relative;
             }
             
-            /* Em desktop, ambas as seções compartilham a mesma estrutura */
             #section1 .download-section,
             #section2 .download-section {
                 display: block;
@@ -706,7 +688,6 @@
             <div class="text-content">
                 <div>
                     <h1 class="section-title">
-                        <!-- CORREÇÃO 1: Ajuste da formatação da primeira frase -->
                         <div class="title-container">
                             <span class="animated-text apareca-text" id="apareca-text">Apareça.</span>
                             <span class="animated-text animated-delay-1 resto-text" id="resto-text-1">Peça vídeos, promova o que você quiser.</span>
@@ -745,7 +726,6 @@
         </div>
     </div>
     
-    <!-- Alteração 3: Área em branco entre as seções -->
     <div class="white-space">
         <div class="white-space-content">
             <h2>
@@ -757,9 +737,8 @@
    <div class="section" id="section2">
     <div class="section-bg"></div>
     <div class="section-content">
-        <!-- Área "Baixe como Artista" - desktop -->
         <div class="text-content download-section">
-            <h3 class="download-title">Baixe como Artista:</h3>
+            <h3 class="download-title">Baixe como Criativo:</h3>
             <div class="soon-message" id="soon-message-2">Disponível em breve*</div>
         </div>
 
@@ -789,7 +768,6 @@
     </div>
 </div>
 
-        <!-- Alteração 4: Rodapé sobre a imagem de fundo -->
         <footer class="page-footer">
             <div class="footer-content">
                 <div class="social-icons-footer">
@@ -915,11 +893,8 @@
             }
         }
 
-        // Função para animação de entrada
         function animateElements() {
-            // Verificar se já foi animado antes (usando sessionStorage)
             if (!sessionStorage.getItem('holoflyAnimated')) {
-                // Primeira seção
                 setTimeout(() => {
                     document.getElementById('apareca-text').classList.add('show');
                 }, 400);
@@ -929,7 +904,6 @@
                     document.getElementById('soon-message-1').classList.add('show');
                 }, 800);
                 
-                // Segunda seção
                 setTimeout(() => {
                     document.getElementById('monetize-text').classList.add('show');
                 }, 1500);
@@ -938,10 +912,8 @@
                     document.getElementById('soon-message-2').classList.add('show');
                 }, 1800);
                 
-                // Marcar como animado para não repetir na mesma sessão
                 sessionStorage.setItem('holoflyAnimated', 'true');
             } else {
-                // Se já foi animado, mostrar tudo imediatamente
                 const animatedElements = document.querySelectorAll('.animated-text, .soon-message');
                 animatedElements.forEach(el => {
                     el.classList.add('show');
@@ -953,12 +925,12 @@
             new DesktopCarousel('carousel1-desktop');
             new DesktopCarousel('carousel2-desktop');
             
-            // Iniciar animações
             animateElements();
         });
     </script>
 </body>
 </html>
+
 
 
 

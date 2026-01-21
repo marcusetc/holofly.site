@@ -4,24 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- TÍTULO E DESCRIÇÃO -->
   <title>Política de Privacidade - Holofly</title>
-  <meta name="description" content="Política de Privacidade e Proteção de Dados da Holofly. Conheça como protegemos suas informações pessoais.">
+  <meta name="description" content="Escolha a Política de Privacidade específica para seu perfil na Holofly">
   
-  <!-- URL CANÔNICA (SOLUÇÃO DO PROBLEMA) -->
   <link rel="canonical" href="https://holofly.com.br/politica/" />
   
-  <!-- META TAGS PARA REDES SOCIAIS -->
   <meta property="og:title" content="Política de Privacidade - Holofly">
-  <meta property="og:description" content="Política de Privacidade e Proteção de Dados da Holofly">
+  <meta property="og:description" content="Escolha a Política de Privacidade específica para seu perfil na Holofly">
   <meta property="og:url" content="https://holofly.com.br/politica/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Holofly">
   
-  <!-- META TAGS TWITTER -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Política de Privacidade - Holofly">
-  <meta name="twitter:description" content="Política de Privacidade e Proteção de Dados da Holofly">
+  <meta name="twitter:description" content="Escolha a Política de Privacidade específica para seu perfil na Holofly">
   
   <!-- FONTS E ESTILOS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -58,64 +54,87 @@
       text-decoration: none;
     }
 
-    /* Conteúdo */
+    /* Conteúdo Principal */
     .main-content {
       max-width: 1000px;
-      margin: 0 auto; /* Removemos a margem superior fixa */
+      margin: 0 auto;
       padding: 20px;
       flex: 1;
+      text-align: center;
     }
 
     .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* Cards Container */
+    .cards-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .policy-card {
+      background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+      border-radius: 15px;
+      padding: 40px 30px;
+      width: 350px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    /* Efeito hover para o card Cliente */
+    .policy-card:nth-child(1):hover {
+      border-color: #1E90FF;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(30, 144, 255, 0.2);
+    }
+    
+    /* Efeito hover para o card Criativo */
+    .policy-card:nth-child(2):hover {
+      border-color: #FF2D8E;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 45, 142, 0.2);
+    }
+
+    .card-title-cliente {
       font-size: 1.8rem;
       font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .last-update {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-top: 25px;
-      margin-bottom: 10px;
-      color: #1E90FF;
-    }
-
-    .subsection-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-top: 15px;
-      margin-bottom: 5px;
-    }
-
-    .paragraph {
-      font-size: 1rem;
-      line-height: 1.5;
       margin-bottom: 15px;
-      color: #ddd;
-    }
-
-    .intro, .contact {
-      margin-bottom: 20px;
-      color: #ddd;
-    }
-
-    /* Link de exclusão */
-    .delete-link {
       color: #1E90FF;
-      text-decoration: none;
-      font-weight: 600;
     }
 
-    .delete-link:hover {
-      text-decoration: underline;
-      color: #63B3ED;
+    .card-title-criativo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #FF2D8E;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      opacity: 0.8;
     }
 
     /* Link de voltar */
@@ -176,86 +195,47 @@
         display: block;
         margin: 2px 0;
       }
+      
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .policy-card {
+        width: 100%;
+        max-width: 400px;
+      }
+      
+      .title {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <a href="../index.html" class="logo">HOLOFLY</a> <!-- Alterado para index.html -->
+    <a href="../index.html" class="logo">HOLOFLY</a>
   </header>
 
   <!-- Conteúdo -->
   <div class="main-content">
-    <h1 class="title">Política de Privacidade e Proteção de Dados</h1>
-    <p class="last-update">Última atualização: 22 de agosto de 2025</p>
+    <h1 class="title">Política de Privacidade</h1>
+    <p class="subtitle">Escolha a Política de Privacidade específica para seu perfil na Holofly</p>
 
-    <p class="intro">
-      A Holofly Serviços de Tecnologia LTDA ("Holofly"), inscrita no CNPJ sob o nº 59.240.195/0001-90, é uma empresa
-      de direito privado que atua no segmento de mídia digital, conectando contratantes ("Usuário Cliente") e
-      prestadores de serviços ("Usuário Artista") através de seus aplicativos e/ou site.
-    </p>
+    <div class="cards-container">
+      <!-- Card para Clientes -->
+      <a href="politica-cliente.html" class="policy-card">
+        <h2 class="card-title-cliente">Para Usuários Clientes</h2>
+        <div style="color: #1E90FF; font-weight: 600;">Acessar Política →</div>
+      </a>
 
-    <h2 class="section-title">1. Quais dados coletamos?</h2>
-    <h3 class="subsection-title">1.1. Dados fornecidos por você:</h3>
-    <p class="paragraph">
-      • Nome, e-mail, número de telefone e senha.<br>
-      • CPF e informações de pagamento.<br>
-      • Foto de perfil opcional.<br>
-      • Avaliações, comentários e respostas.
-    </p>
-
-    <h3 class="subsection-title">1.2. Dados coletados automaticamente:</h3>
-    <p class="paragraph">
-      • Sistema operacional e modelo do dispositivo.<br>
-      • Informações de uso do aplicativo.<br>
-      • Dados de falhas e erros técnicos.
-    </p>
-
-    <h2 class="section-title">2. Como utilizamos seus dados?</h2>
-    <p class="paragraph">
-      • Personalizar sua experiência.<br>
-      • Melhorar nossa plataforma.<br>
-      • Processar transações.<br>
-      • Comunicar promoções e novidades.
-    </p>
-
-    <h2 class="section-title">3. Como protegemos seus dados?</h2>
-    <p class="paragraph">
-      • Criptografia SSL.<br>
-      • Acesso restrito.<br>
-      • Controles internos e atualizações de segurança.<br>
-      • Dados financeiros processados pelo Mercado Pago.<br>
-      • Fotos de perfil com acesso restrito.<br>
-      • Arquivos de pedidos apagados após 3 dias.
-    </p>
-
-    <h2 class="section-title">4. Seus direitos</h2>
-    <p class="paragraph">
-      • Acessar seus dados.<br>
-      • Corrigir informações.<br>
-      • Solicitar exclusão de conta.<br>
-      • <a href="excluir-conta.html" class="delete-link">Como excluir minha conta?</a>
-    </p>
-
-    <h2 class="section-title">5. Armazenamento local</h2>
-    <p class="paragraph">
-      • Pode ser usado armazenamento local seguro no dispositivo.<br>
-      • Nenhum dado de pagamento sensível é armazenado pela Holofly.
-    </p>
-
-    <h2 class="section-title">6. Segurança nos pagamentos</h2>
-    <p class="paragraph">
-Todos os pagamentos realizados pelos clientes com cartão de crédito são processados de forma segura via Mercado Pago, que segue o padrão PCI DSS. Nenhuma informação sensível do cartão é armazenada por nós.
-Os valores recebidos pelos artistas são transferidos de forma interna, via PIX, diretamente para a conta cadastrada.
-    </p>
-
-    <h2 class="section-title">7. Atualizações desta política</h2>
-    <p class="paragraph">
-      Alterações serão notificadas por e-mail ou no aplicativo.
-    </p>
-
-    <p class="contact">Dúvidas: contato@holofly.com.br</p>
+      <!-- Card para Criativos -->
+      <a href="politica-criativo.html" class="policy-card">
+        <h2 class="card-title-criativo">Para Usuários Criativos</h2>
+        <div style="color: #FF2D8E; font-weight: 600;">Acessar Política →</div>
+      </a>
+    </div>
 
     <!-- Link de voltar -->
     <a href="javascript:history.back()" class="back-link">Voltar para a página anterior</a>
@@ -277,4 +257,3 @@ Os valores recebidos pelos artistas são transferidos de forma interna, via PIX,
   </footer>
 </body>
 </html>
-

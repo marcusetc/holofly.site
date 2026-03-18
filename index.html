@@ -242,6 +242,28 @@
             text-align: left;
             font-weight: bold;
         }
+
+        /* Estilos para os botões das lojas */
+        .store-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .store-buttons a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .store-buttons a:hover {
+            transform: scale(1.05);
+        }
+
+        .store-buttons img {
+            height: 50px;
+            width: auto;
+        }
         
         #section4 {
             flex-direction: column;
@@ -548,7 +570,7 @@
         text-align: left;
     }
 
-    .download-buttons {
+    .store-buttons {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -558,7 +580,7 @@
         flex-wrap: nowrap;
     }
 
-    .download-buttons img {
+    .store-buttons img {
         height: 50px;
     }
 
@@ -647,8 +669,8 @@
                 display: block;
             }
             
-            #section1 .download-buttons.desktop,
-            #section2 .download-buttons.desktop {
+            #section1 .store-buttons,
+            #section2 .store-buttons {
                 display: flex;
             }
             
@@ -739,7 +761,14 @@
     <div class="section-content">
         <div class="text-content download-section">
             <h3 class="download-title">Baixe como Criativo:</h3>
-            <div class="soon-message" id="soon-message-2">Disponível em breve na App Store e Google Play</div>
+            <div class="store-buttons">
+                <a href="https://apps.apple.com/br/app/holofly-criativo/id6757938856" target="_blank" rel="noopener noreferrer" aria-label="Baixar na App Store">
+                    <img src="icons/app-store-badge.svg" alt="Baixar na App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.holofly.criativo&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" aria-label="Baixar no Google Play">
+                    <img src="icons/google-play-badge.svg" alt="Disponível no Google Play">
+                </a>
+            </div>
         </div>
 
         <div class="image-content">
@@ -909,7 +938,9 @@
                 }, 1500);
                 
                 setTimeout(() => {
-                    document.getElementById('soon-message-2').classList.add('show');
+                    // A classe 'show' não é mais necessária para a seção 2, mas mantemos para não quebrar o código
+                    const storeButtons = document.querySelector('#section2 .store-buttons');
+                    if (storeButtons) storeButtons.style.opacity = '1';
                 }, 1800);
                 
                 sessionStorage.setItem('holoflyAnimated', 'true');
@@ -918,6 +949,9 @@
                 animatedElements.forEach(el => {
                     el.classList.add('show');
                 });
+                
+                const storeButtons = document.querySelector('#section2 .store-buttons');
+                if (storeButtons) storeButtons.style.opacity = '1';
             }
         }
 
@@ -930,8 +964,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-

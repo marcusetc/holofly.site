@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="canonical" href="https://holofly.com.br/criativos" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#000000">
+
+    <title>Holofly Criativos</title>
+
+    <meta property="og:title" content="Holofly Criativos - Ganhe dinheiro criando vídeos">
+    <meta property="og:description" content="Te conectamos com clientes. Você cria, você recebe.">
+    <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpeg">
+    <meta property="og:url" content="https://holofly.com.br/criativos">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Holofly">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Holofly Criativos - Ganhe dinheiro criando vídeos">
+    <meta name="twitter:description" content="Te conectamos com clientes. Você cria, você recebe.">
+    <meta name="twitter:image" content="https://holofly.com.br/icons/twitter-image.jpg">
+
+    <meta name="description" content="Ganhe dinheiro criando vídeos com a Holofly. Te conectamos com clientes, você cria, você recebe.">
+    <meta name="keywords" content="holofly, criativos, vídeos, criadores de conteúdo, renda extra, freelancers">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/icons/favicon3232.png" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 220px;
+        }
+
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            position: relative;
+            width: 100%;
+            background-color: #000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 40px;
+            display: none;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 30px;
+            height: 30px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 32vh;
+            background-color: #000000e0;
+            padding: 80px 20px 20px;
+            transition: right 0.3s ease;
+            z-index: 999;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #ccc;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hero {
+            min-height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top center, rgba(255,255,255,0.08), transparent 35%),
+                radial-gradient(circle at bottom center, rgba(255,255,255,0.05), transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 760px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.92rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #bdbdbd;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.05;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            line-height: 1.65;
+            color: #cfcfcf;
+            max-width: 620px;
+            margin: 0 auto 34px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 280px;
+            padding: 17px 28px;
+            border-radius: 999px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.98rem;
+            letter-spacing: 0.03em;
+            transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.12);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            opacity: 0.96;
+        }
+
+        .store-section {
+            margin-top: 28px;
+        }
+
+        .store-label {
+            font-size: 0.95rem;
+            color: #a9a9a9;
+            margin-bottom: 14px;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .store-buttons a {
+            display: inline-flex;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .store-buttons a:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        .store-buttons img {
+            height: 56px;
+            width: auto;
+            display: block;
+        }
+
+        .page-footer {
+            background-color: transparent;
+            padding: 2rem 1rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 3;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .social-icons-footer {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .social-icons-footer a {
+            display: inline-block;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons-footer a:hover {
+            transform: scale(1.08);
+        }
+
+        .social-icons-footer img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-text {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .footer-text span {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 280px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .logo-img {
+                display: block;
+            }
+
+            .hero {
+                min-height: calc(100vh - 80px);
+                padding: 30px 20px 60px;
+            }
+
+            .hero p {
+                font-size: 1.02rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .store-buttons img {
+                height: 52px;
+            }
+
+            .footer-text span {
+                display: block;
+                margin: 2px 0;
+            }
+
+            .page-footer {
+                background-color: #111;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">
+            <span class="logo-text">HOLOFLY</span>
+            <img src="/icons/logo.png" alt="HOLOFLY" class="logo-img">
+        </a>
+
+        <div class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="/sobre/">Sobre a Holofly</a></li>
+            <li><a href="/perguntasfrequentes/">Perguntas Frequentes</a></li>
+            <li><a href="/contato/">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <main class="hero">
+        <div class="hero-content">
+
+            <h1>Você pode ganhar dinheiro criando vídeos</h1>
+
+            <p>
+                Te conectamos com clientes.<br>
+                Você cria, você recebe.
+            </p>
+
+            <a href="LINK_BOTAO_PRINCIPAL" class="cta-button">
+                QUERO COMEÇAR AGORA
+            </a>
+
+            <div class="store-section">
+                <div class="store-label"></div>
+
+                <div class="store-buttons">
+                    <a href="https://apps.apple.com/br/app/holofly-criativo/id6757938856
+" target="_blank" rel="noopener noreferrer" aria-label="Baixar na App Store">
+                        <img src="icons/app-store-badge.svg" alt="Baixar na App Store">
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.holofly.criativo&pcampaignid=web_share
+" target="_blank" rel="noopener noreferrer" aria-label="Baixar no Google Play">
+                        <img src="icons/google-play-badge.svg" alt="Disponível no Google Play">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="social-icons-footer">
+                <a href="https://www.facebook.com/profile.php?id=61580622752588" target="_blank" rel="noopener noreferrer">
+                    <img src="/icons/Facebook_Logo_Primary.png" alt="Facebook">
+                </a>
+                <a href="https://instagram.com/holoflybrasil" target="_blank" rel="noopener noreferrer">
+                    <img src="/icons/Instagram_Glyph_White.png" alt="Instagram">
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="/termos/">Termos de uso</a>
+                <a href="/politica/">Política de privacidade</a>
+            </div>
+
+            <p class="footer-text">
+                <span>&copy; 2026 Holofly. Todos os direitos reservados.</span>
+                <span>CNPJ: 59.240.195/0001-90</span>
+                <span>Rua Santa Luzia, 651, 25º andar, Rio de Janeiro - RJ, CEP: 20030-041</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+
+            const expanded = menuToggle.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>

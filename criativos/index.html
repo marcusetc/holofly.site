@@ -7,25 +7,20 @@
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#000000">
 
-    <title>Holofly Criativos</title>
+    <title>Holofly Criativos - Transforme edições em renda</title>
 
     <meta property="og:title" content="Holofly Criativos - Ganhe dinheiro criando vídeos">
-    <meta property="og:description" content="Te conectamos com clientes. Você cria, você recebe.">
+    <meta property="og:description" content="Conectamos universitários criativos a empreendedores reais. Sem burocracia.">
     <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpeg">
     <meta property="og:url" content="https://holofly.com.br/criativos">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Holofly">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Holofly Criativos - Ganhe dinheiro criando vídeos">
-    <meta name="twitter:description" content="Te conectamos com clientes. Você cria, você recebe.">
-    <meta name="twitter:image" content="https://holofly.com.br/icons/twitter-image.jpg">
-
-    <meta name="description" content="Ganhe dinheiro criando vídeos com a Holofly. Te conectamos com clientes, você cria, você recebe.">
-    <meta name="keywords" content="holofly, criativos, vídeos, criadores de conteúdo, renda extra, freelancers">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="/icons/favicon3232.png" type="image/x-icon">
+
+    <!-- Biblioteca Rellax para o efeito Parallax -->
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
 
     <style>
         * {
@@ -52,7 +47,6 @@
             z-index: 1000;
             position: relative;
             width: 100%;
-            background-color: #000;
         }
 
         .logo {
@@ -60,21 +54,21 @@
             font-weight: 700;
             color: #fff;
             text-decoration: none;
+            letter-spacing: -1px;
         }
 
         .logo-img {
-            height: 40px;
+            height: 35px;
             display: none;
         }
 
+        /* Menu Hamburguer */
         .menu-toggle {
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             gap: 5px;
             width: 30px;
-            height: 30px;
             z-index: 1001;
         }
 
@@ -84,19 +78,7 @@
             width: 100%;
             background-color: #fff;
             border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transition: 0.3s;
         }
 
         .nav-menu {
@@ -104,169 +86,140 @@
             top: 0;
             right: -100%;
             width: 250px;
-            height: 32vh;
-            background-color: #000000e0;
-            padding: 80px 20px 20px;
-            transition: right 0.3s ease;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.95);
+            padding: 100px 20px;
+            transition: 0.3s;
             z-index: 999;
         }
 
-        .nav-menu.active {
-            right: 0;
-        }
+        .nav-menu.active { right: 0; }
 
-        .nav-menu ul {
-            list-style: none;
-        }
-
-        .nav-menu li {
-            margin-bottom: 15px;
-        }
-
+        .nav-menu ul { list-style: none; }
         .nav-menu a {
             color: #fff;
             text-decoration: none;
             font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: #ccc;
+            display: block;
+            margin-bottom: 20px;
         }
 
         .overlay {
             position: fixed;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.7);
+            display: none;
             z-index: 998;
         }
 
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .overlay.active { display: block; }
 
+        /* Hero Section */
         .hero {
-            min-height: calc(100vh - 90px);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px 80px;
-            position: relative;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at top center, rgba(255,255,255,0.08), transparent 35%),
-                radial-gradient(circle at bottom center, rgba(255,255,255,0.05), transparent 40%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            width: 100%;
-            max-width: 760px;
             text-align: center;
+            padding: 20px 20px 60px;
             position: relative;
-            z-index: 2;
         }
 
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            line-height: 1.05;
+            font-size: clamp(2rem, 8vw, 3.2rem);
+            line-height: 1.1;
             font-weight: 800;
-            margin-bottom: 22px;
+            margin-bottom: 15px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #AFAFAF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            line-height: 1.65;
-            color: #cfcfcf;
-            max-width: 620px;
-            margin: 0 auto 34px;
+            font-size: 1.1rem;
+            color: #A0A0A0;
+            max-width: 500px;
+            margin-bottom: 30px;
         }
 
+        /* Container do Mockup Parallax */
+        .parallax-container {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .parallax-container::before {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(64, 224, 208, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: 1;
+        }
+
+        /* Celular de Trás (Secundário) */
+        .mockup-img.back {
+            width: 45vw;
+            max-width: 190px;
+            z-index: 4;
+            transform: rotate(-12deg) translateX(-40px);
+            opacity: 0.8;
+        }
+
+        /* Celular da Frente (Principal) */
+        .mockup-img.front {
+            width: 50vw;
+            max-width: 210px;
+            z-index: 6;
+            transform: rotate(8deg) translateX(30px);
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9));
+        }
+
+        /* Elementos flutuantes (moedas, icones) */
+        .floating-element {
+            position: absolute;
+            width: 45px;
+            opacity: 0.7;
+            z-index: 4;
+        }
+
+        /* Botão de Ação com Degradê Profissional */
         .cta-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 280px;
-            padding: 17px 28px;
+            width: 100%;
+            max-width: 320px;
+            padding: 18px 30px;
             border-radius: 999px;
-            background: #fff;
+            background: linear-gradient(90deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%);
             color: #000;
             text-decoration: none;
             font-weight: 800;
-            font-size: 0.98rem;
-            letter-spacing: 0.03em;
-            transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-            box-shadow: 0 10px 30px rgba(255,255,255,0.12);
+            font-size: 1rem;
             border: none;
             cursor: pointer;
+            box-shadow: 0 0 25px rgba(64, 224, 208, 0.3);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 10;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            opacity: 0.96;
-        }
+        .cta-button:active { transform: scale(0.95); }
 
-        .qr-wrapper {
-            display: none;
-            margin-top: 24px;
-        }
+        .qr-wrapper { display: none; margin-top: 20px; text-align: center; }
+        .qr-wrapper.show { display: block; }
+        .qr-code-img { width: 180px; background: #fff; padding: 10px; border-radius: 12px; }
 
-        .qr-wrapper.show {
-            display: block;
-        }
+        .store-section { margin-top: 40px; }
+        .store-buttons { display: flex; gap: 15px; justify-content: center; }
+        .store-buttons img { height: 45px; }
 
-        .qr-label {
-            font-size: 0.98rem;
-            color: #cfcfcf;
-            margin-bottom: 14px;
-        }
-
-        .qr-code-img {
-            width: 220px;
-            max-width: 80vw;
-            height: auto;
-            border-radius: 12px;
-            background: #fff;
-            padding: 10px;
-        }
-
-        .store-section {
-            margin-top: 28px;
-        }
-
-        .store-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .store-buttons a {
-            display: inline-flex;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-
-        .store-buttons a:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
-        }
-
-        .store-buttons img {
-            height: 56px;
-            width: auto;
-            display: block;
-        }
-
+        /* Footer mantido do original */
         .page-footer {
             background-color: transparent;
             padding: 2rem 1rem;
@@ -330,36 +283,10 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-bottom: 280px;
-            }
-
-            .logo-text {
-                display: none;
-            }
-
-            .logo-img {
-                display: block;
-            }
-
-            .hero {
-                min-height: calc(100vh - 80px);
-                padding: 30px 20px 60px;
-            }
-
-            .hero p {
-                font-size: 1.02rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                min-width: unset;
-            }
-
-            .store-buttons img {
-                height: 52px;
-            }
-
+            .logo-text { display: none; }
+            .logo-img { display: block; }
+            .hero { padding-top: 10px; }
+            
             .footer-text span {
                 display: block;
                 margin: 2px 0;
@@ -372,16 +299,14 @@
     </style>
 </head>
 <body>
+
     <header>
         <a href="/" class="logo">
             <span class="logo-text">HOLOFLY</span>
-            <img src="/icons/logo.png" alt="HOLOFLY" class="logo-img">
+            <img src="icons/logo.png" alt="HOLOFLY" class="logo-img">
         </a>
-
-        <div class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
         </div>
     </header>
 
@@ -396,41 +321,36 @@
     <div class="overlay" id="overlay"></div>
 
     <main class="hero">
-        <div class="hero-content">
-            <h1>Você pode ganhar dinheiro criando vídeos</h1>
+        <h1>Transforme suas edições em dinheiro no bolso.</h1>
+        <p>Conectamos criativos a empreendedores reais. Sem burocracia, direto pelo app.</p>
 
-            <p>
-                Te conectamos com clientes.<br>
-                Você cria, você recebe.
-            </p>
+        <!-- AREA DO MOCKUP COM PARALLAX -->
+        <div class="parallax-container">
+            <!-- Mockup de Trás (use outra tela do app aqui) -->
+            <img src="icons/mockup-celular-2.png" class="mockup-img back rellax" data-rellax-speed="-0.5" alt="Interface Holofly">
 
-            <button type="button" class="cta-button" id="startButton">
-                QUERO COMEÇAR AGORA
-            </button>
+            <!-- Mockup da Frente (O principal de ganhos) -->
+            <img src="icons/mockup-celular.png" class="mockup-img front rellax" data-rellax-speed="-1.5" alt="Ganhos Holofly">
+        </div>
 
-            <div class="qr-wrapper" id="qrWrapper">
-                <div class="qr-label">Escaneie com o celular para continuar</div>
-                <img
-                    src="/icons/qr-code.svg"
-                    alt="QR Code para abrir a página da Holofly no celular"
-                    class="qr-code-img"
-                >
-            </div>
+        <button type="button" class="cta-button" id="startButton">
+            QUERO COMEÇAR AGORA
+        </button>
 
-            <div class="store-section">
-                <div class="store-buttons">
-                    <a href="https://apps.apple.com/br/app/holofly-criativo/id6757938856" target="_blank" rel="noopener noreferrer" aria-label="Baixar na App Store">
-                        <img src="/icons/app-store-badge.svg" alt="Baixar na App Store">
-                    </a>
+        <div class="qr-wrapper" id="qrWrapper">
+            <p style="margin-bottom: 10px; color: #ccc;">Escaneie para baixar</p>
+            <img src="/icons/qr-code.svg" class="qr-code-img" alt="QR Code">
+        </div>
 
-                    <a href="https://play.google.com/store/apps/details?id=com.holofly.criativo&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" aria-label="Baixar no Google Play">
-                        <img src="/icons/google-play-badge.svg" alt="Disponível no Google Play">
-                    </a>
-                </div>
+        <div class="store-section">
+            <div class="store-buttons">
+                <a href="https://apps.apple.com/br/app/holofly-criativo/id6757938856" target="_blank"><img src="/icons/app-store-badge.svg" alt="App Store"></a>
+                <a href="https://play.google.com/store/apps/details?id=com.holofly.criativo" target="_blank"><img src="/icons/google-play-badge.svg" alt="Play Store"></a>
             </div>
         </div>
     </main>
 
+    <!-- Footer mantido do original com links de Termos e Política -->
     <footer class="page-footer">
         <div class="footer-content">
             <div class="social-icons-footer">
@@ -456,52 +376,42 @@
     </footer>
 
     <script>
-        const APP_STORE_URL = "https://apps.apple.com/br/app/holofly-criativo/id6757938856";
-        const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.holofly.criativo&pcampaignid=web_share";
+        // 1. Inicializar Parallax
+        var rellax = new Rellax('.rellax', {
+            center: true,
+            round: true,
+            vertical: true,
+            horizontal: false
+        });
 
+        // 2. Menu hamburguer
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
         const overlay = document.getElementById('overlay');
-        const startButton = document.getElementById('startButton');
-        const qrWrapper = document.getElementById('qrWrapper');
 
         function toggleMenu() {
-            menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
             overlay.classList.toggle('active');
-
-            const expanded = menuToggle.classList.contains('active');
-            menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
         }
-
         menuToggle.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
 
-        function isIOS() {
-            return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        }
+        // 3. Lógica do botão de download
+        const startButton = document.getElementById('startButton');
+        const qrWrapper = document.getElementById('qrWrapper');
 
-        function isAndroid() {
-            return /Android/i.test(navigator.userAgent);
-        }
-
-        function isMobileDevice() {
-            return isIOS() || isAndroid();
-        }
-
-        startButton.addEventListener('click', function () {
-            if (isIOS()) {
-                window.location.href = APP_STORE_URL;
-                return;
+        startButton.addEventListener('click', function() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                window.location.href = "https://apps.apple.com/br/app/holofly-criativo/id6757938856";
+            } else if (/Android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.holofly.criativo";
+            } else {
+                // Desktop: mostra o QR Code
+                startButton.style.display = 'none';
+                qrWrapper.classList.add('show');
             }
-
-            if (isAndroid()) {
-                window.location.href = PLAY_STORE_URL;
-                return;
-            }
-
-            startButton.style.display = 'none';
-            qrWrapper.classList.add('show');
         });
     </script>
 </body>

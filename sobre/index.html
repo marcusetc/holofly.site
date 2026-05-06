@@ -26,41 +26,31 @@
     <link rel="icon" href="../icons/favicon3232.png" type="image/x-icon">
 
     <style>
+        :root {
+            --primary: #2563eb; 
+            --primary-hover: #1d4ed8;
+            --bg: #0a0a0a;
+            --card-bg: #141414;
+            --border: #262626;
+            --text-main: #ffffff;
+            --text-secondary: #a1a1aa;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
             overflow-x: hidden;
-            background-color: #000;
-            color: #fff;
-            position: relative;
-            min-height: 100vh;
         }
-        
-        .section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 2rem;
-        }
-        
-        .bold-text {
-            font-weight: 700;
-        }
-        
+
         header {
             top: 0;
             left: 0;
@@ -79,8 +69,8 @@
             color: #fff;
             text-decoration: none;
         }
-        
-        .logo-img {
+
+                .logo-img {
             height: 40px;
             display: none;
         }
@@ -95,7 +85,10 @@
             height: 30px;
             z-index: 1001;
         }
-        
+
+        .logo span { color: var(--primary); }
+
+
         .menu-toggle span {
             display: block;
             height: 3px;
@@ -104,8 +97,8 @@
             border-radius: 3px;
             transition: all 0.3s ease;
         }
-        
-        .menu-toggle span:nth-child(1) {
+
+                .menu-toggle span:nth-child(1) {
             transform-origin: center;
         }
         
@@ -140,7 +133,7 @@
             transition: right 0.3s ease;
             z-index: 999;
         }
-        
+
         .nav-menu.active {
             right: 0;
         }
@@ -163,114 +156,244 @@
         .nav-menu a:hover {
             color: #ccc;
         }
-        
+
         .overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            inset: 0;
+            background: rgba(0,0,0,0.7);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             z-index: 998;
         }
-        
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .about-content {
-            max-width: 1200px;
-            margin: 100px auto 50px;
-            padding: 0 20px;
-        }
-        
-        .cards-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .card {
-            background: #111;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .card-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #fff;
-            text-align: center;
-        }
-        
-        .card-content {
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-        
-        .card-content p {
-            margin-bottom: 1.5rem; 
-        }
-        
-        .card-content ul {
-            margin-left: 20px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .card-content li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .profile-container {
-            background: #111;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .text-content {
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-        
-        .text-content p {
-            margin-bottom: 1.5rem; 
-        }
-        
-        .image-content {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .profile-image {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 10px;
-            border: 2px solid #333;
-        }
-        
-        .signature {
-            text-align: left;
-            font-style: italic;
-            margin-top: 30px;
-            font-size: 1.1rem;
-            border-top: 0px solid #333;
-            padding-top: 15px;
+        .overlay.active { opacity: 1; visibility: visible; }
+
+        .container {
+            max-width: 1100px;
+            margin: 160px auto 80px;
+            padding: 0 25px;
         }
 
-        @media (max-width: 768px) {
-            .profile-image {
-                max-width: 200px;
-            }
+        .hero-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 45px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            background: #1a1a1a;
         }
         
-        .page-footer {
+        .card > i {
+            display: none;
+        }
+
+        .card-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-title-wrapper h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0; 
+        }
+        
+        .card-icon {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+        
+        .card:hover .card-icon {
+            color: var(--primary);
+            opacity: 1;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .card-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .card-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .card-list li::before {
+            content: "\f105"; 
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 0.8rem;
+            top: 4px;
+        }
+
+        .security-bar {
+            background: linear-gradient(90deg, #111 0%, #161616 100%);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .security-text h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .security-text p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .security-logos {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            filter: grayscale(1);
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+        .security-logos:hover { filter: grayscale(0); opacity: 1; }
+        .logo-item { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 0.9rem; }
+        
+        .svg-icon {
+            height: 24px;
+            width: auto;
+        }
+
+        .firebase {
+            height: 24px;
+        }
+
+        .mercado {
+            height: 28px; 
+        }
+
+        .founder-box {
+            background: #111;
+            border-radius: 30px;
+            padding: 60px;
+            border-left: 6px solid var(--primary);
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .founder-content {
+            flex: 1.2;
+            min-width: 280px;
+        }
+
+        .founder-content h2 { 
+            font-size: 2rem; 
+            margin-bottom: 25px; 
+        }
+        
+        .founder-content p { 
+            margin-bottom: 20px; 
+            color: var(--text-secondary); 
+            font-size: 1.05rem; 
+        }
+
+        .founder-img-wrapper {
+            flex: 0.8;
+            min-width: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .founder-img {
+            width: 100%;
+            max-width: 280px;
+            background: #222;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5);
+        }
+
+        .founder-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+        }
+
+        .signature {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--text-secondary); 
+            text-align: center;
+            width: 100%;
+        }
+        
+        @media (min-width: 992px) {
+            .founder-box {
+                flex-wrap: nowrap;
+                align-items: center;
+            }
+            
+            .founder-img-wrapper {
+                order: 2;
+            }
+            
+            .founder-content {
+                order: 1; 
+            }
+        }
+
+                .page-footer {
             background-color: #000;
             padding: 2rem 1rem;
             border-top: 0px solid #333;
@@ -308,16 +431,109 @@
             display: inline-block;
             margin-right: 15px;
         }
-
-        @media (max-width: 768px) {
-            .footer-text span {
-                display: block; 
-                margin: 2px 0;
+        
+        @media (max-width: 991px) and (min-width: 769px) {
+            .founder-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .founder-content {
+                text-align: center;
+            }
+            
+            .founder-img-wrapper {
+                margin-top: 30px;
             }
         }
+        
+        @media (max-width: 768px) {
+            .founder-box {
+                padding: 30px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .founder-content {
+                text-align: left;
+            }
+            
+            .founder-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section h1 { 
+                font-size: 2rem; 
+            }
+            
+            .founder-img-wrapper {
+                margin-top: 30px;
+            }
+            
+            .founder-img {
+                max-width: 260px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-section h1 { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 600px) {
+            .security-bar { justify-content: center; text-align: center; }
+            .grid-cards { grid-template-columns: 1fr; }
+        }
+        
+        footer {
+            background: #000;
+            padding: 80px 5% 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-info p { color: var(--text-secondary); font-size: 0.9rem; margin-top: 15px; }
+
+        .footer-nav h4 { margin-bottom: 20px; font-size: 1rem; color: #fff; }
+        .footer-nav a { display: block; color: var(--text-secondary); text-decoration: none; margin-bottom: 12px; font-size: 0.9rem; transition: 0.3s; }
+        .footer-nav a:hover { color: #fff; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 60px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            color: #444;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+
+    .logo-img {
+        display: block;
+    }
+}
     </style>
 </head>
 <body>
+
     <header>
         <a href="../index.html" class="logo">
             <span class="logo-text">HOLOFLY</span>
@@ -340,106 +556,96 @@
     
     <div class="overlay" id="overlay"></div>
 
-    <div class="about-content">
-        <div class="cards-container">
-            <div class="card">
-                <div class="card-content">
-                    <p><strong>Nossa missão: Conectar quem precisa aparecer e quem sabe como mostrar.</strong></p>
-                    <p>A ideia nasceu da vontade de juntar o Brasil empreendedor, com o Brasil criativo. Acreditamos no potencial dessa mistura, e buscamos tornar esse processo de produção de mídias promocionais em algo mais dinâmico, acessível e justo.</p>
-                    <p>A Holofly é a ponte entre esses dois mundos.</p>
-                    <p>É para o empreendedor que quer se destacar em suas redes sociais ou mídias externas (OOH). E é para o criador de conteúdo, que pode transformar sua habilidade em um "pé de meia", ganhando um extra fazendo aquilo que manda bem.</p>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-content">
-                    <p><strong>Como funciona: A engrenagem da máquina.</strong></p>
-                    <p>Do pedido à aprovação final, criamos um processo simples, seguro e transparente para garantir que quem pede receba do jeitinho que precisa e quem faz tenha a segurança do recebimento do pagamento.</p>
-                    
-                    <h3>Faça seu pedido: Rápido e direto ao ponto.</h3>
-                    <ul>
-                        <li><strong>Descreva sua ideia:</strong> Escreva um texto claro explicando o objetivo do vídeo, com todos os detalhes pertinentes.</li>
-                        <li><strong>Adicione referências:</strong> Anexe até 3 imagens.</li>
-                        <li><strong>Defina o prazo:</strong> Escolha o tempo de entrega que melhor atende você.</li>
-                        <li><strong>Escolha quem irá produzir:</strong> Solicite à plataforma ou selecione diretamente um dos perfis exibidos nos Destaques do Dia.</li>
-                    </ul>
-                    
-                    <h3>2.2. Pagamento Seguro: Você tem o Controle</h3>
-                    <ul>
-                        <li>O valor do pedido é reservado em seu cartão de crédito cadastrado no app.</li>
-                        <li>A cobrança só é efetivamente capturada após você confirmar e atribuir o pedido a um profissional criativo.</li>
-                    </ul>
-                    
-                    <h3>2.3. Colaboração em tempo real: Aprovação antes do final</h3>
-                    <p>Para garantir que o vídeo está no caminho certo:</p>
-                    <ul>
-                        <li>O criativo tem até a metade do prazo para enviar uma prévia visual (através de prints) do trabalho.</li>
-                        <li>Você analisa e pode enviar observações pontuais para ajustes.</li>
-                    </ul>
-                    
-                    <h3>2.4. Entrega e liberacão: Conclusão com Segurança</h3>
-                    <ul>
-                        <li>Com sua observação o criativo finaliza e envia o arquivo final dentro do prazo combinado.</li>
-                        <li>Após a entrega, o valor é liberado em 3 dias.</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-content">
-                    <p><strong>Nossa aposta: Vídeos feitos por pessoas, para pessoas.</strong></p>
-                    <p>Em um mundo cada vez mais automatizado, nós fazemos uma escolha consciente: acreditamos no toque humano.</p>
-                    <p>Cada vídeo que você recebe pela Holofly é uma criação única, gestada pela criatividade, empatia e intenção de um membro da nossa comunidade. Aqui, um ser humano de verdade se conecta com a sua história para dar vida à sua mensagem.</p>
-                    <p>Mais do que uma plataforma, somos uma comunidade vibrante de criadores. Pessoas talentosas que encontraram aqui um espaço para se conectar, colocar sua habilidade em prática e gerar uma renda extra fazendo o que amam.</p>
-                    <p>Este é o nosso propósito: ser a ponte que une a necessidade de se comunicar de forma autêntica ao talento de quem tem o dom de provocar emoções através da criatividade.</p>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-content">
-                    <p><strong>Transparência: Um modelo justo para todos.</strong></p>
-                    <p>Acreditamos que a confiança também se constrói com transparência financeira. Por isso, somos claros sobre como sustentamos essa comunidade.</p>
-                    <p>Para manter a plataforma segura, estável e em constante evolução, cobramos uma pequena taxa de manutenção que varia de 12% a 14% sobre cada pedido concluído.</p>
-                    <p>Esse valor é essencial para:</p>
-                    <ul>
-                        <li>Garantir a qualidade do serviço e um suporte eficiente.</li>
-                        <li>Investir em segurança para proteger seus dados e transações.</li>
-                        <li>Fomentar o crescimento da nossa comunidade de criadores.</li>
-                    </ul>
-                    <p>É assim que seguimos firmes, melhorando a cada dia para ser um ambiente próspero e confiável para você e todos os envolvidos.</p>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-content">
-                    <p><strong>Segurança.</strong></p>
-                    <p>Para garantir a segurança dos seus dados e a fluidez da sua experiência, confiamos em gigantes da tecnologia: Utilizamos o Google Firebase como nossa base de dados e infraestrutura, e o Mercado Pago para processar todas as transações financeiras de forma 100% segura.</p>
-                </div>
-            </div>
-        </div>
+    <main class="container">
         
-        <div class="profile-container">
-            <div class="text-content">
-                <p><strong>Por trás de tudo.</strong></p>
-                <p>Há um ano, a Holofly começava a nascer com um propósito claro: Conectar pequenos empreendedores a talentos criativos. Sempre acreditei no imenso potencial do brasileiro - nossa criatividade é um dos nossos maiores valores.</p>
-                
-                <p>Percebi que construir pontes entre quem batalha todos os dias e quem transforma arte em profissão seria uma das maneiras mais genuínas de criar oportunidades reais.</p>
-                
-                <p>Meu compromisso é possibilitar que microempreendedores - como costureiras, ambulantes, cozinheiras e donos de pequenos estabelecimentos - encontrem criadores de conteúdo, ilustradores e outros profissionais talentosos. E que dessa união, possam surgir novos projetos, mais visibilidade e chances concretas de crescimento.</p>
+        <section class="hero-section">
+            <h1>Nossa História</h1>
+            <p>Queremos conectar o Brasil empreendedor ao Brasil criativo para gerar oportunidades reais de crescimento.</p>
+        </section>
 
-                <p>Juntos, estamos construindo um ecossistema onde talentos e oportunidades se encontram para prosperar.</p>
-                
-                <div class="image-content">
-                    <div style="width: 100%; height: 300px; background-color: #333; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #777;">
-                        Foto a ser inserida
-                    </div>
+        <div class="grid-cards">
+            <div class="card">
+                <div class="card-title-wrapper">
+                    <h2>Propósito</h2>
+                    <i class="fas fa-rocket card-icon"></i>
                 </div>
+                <p>A Holofly nasceu para tornar a produção de mídias promocionais dinâmica, acessível e, acima de tudo, justa.</p>
+                
+                <p>Acreditamos no potencial humano e queremos garantir que talentos criativos tenham <strong>oportunidades reais</strong>, estabelecendo uma nova forma de monetizar a criação artística no Brasil, valorizando quem de fato faz a engrenagem criativa girar.</p>
+                
+                <p>Por fim, queremos democratizar o acesso: Pequenos empreendedores, que antes ficavam à margem de um mercado de qualidade restrito a poucos, agora podem se destacar em um ambiente competitivo com vídeos profissionais. Nosso objetivo é conectar quem tem o dom de criar a quem precisa aparecer.</p>
+            </div>
 
-                <div class="signature">Marcus Guimarães.</div>
+            <div class="card">
+                <div class="card-title-wrapper">
+                    <h2>Segurança no Fluxo</h2>
+                    <i class="fas fa-fingerprint card-icon"></i>
+                </div>
+                <p>Criamos um ecossistema transparente onde quem pede recebe qualidade e quem faz tem garantia de pagamento.</p>
+                <ul class="card-list">
+                    <li><strong>Pedido Direto:</strong> O cliente define briefing, referências visuais, duração do vídeo e prazo de entrega.</li>
+                    <li><strong>Pagamento Seguro:</strong> Garantimos que os valores sejam repassados apenas após o envio final.</li>
+                    <li><strong>Colaboração:</strong> Envio de prévias e ajustes em tempo real.</li>
+                    <li><strong>Entrega Final:</strong> Conclusão segura com liberação rápida.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title-wrapper">
+                    <h2>O Toque Humano</h2>
+                    <i class="fas fa-users card-icon"></i>
+                </div>
+                <p>Em vez do artificial, apostamos na criatividade real. Cada vídeo nasce da criatividade real — feito por pessoas, para pessoas.</p>
+                <p>Mais que uma plataforma, desejamos ser uma comunidade vibrante que une necessidades autênticas a talentos capazes de provocar emoção.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title-wrapper">
+                    <h2>Modelo Sustentável</h2>
+                    <i class="fas fa-chart-line card-icon"></i>
+                </div>
+                <p>Cobramos uma taxa de manutenção entre 12% e 14% sobre cada pedido para manter a plataforma estável e segura. Garantimos:</p>
+                <ul class="card-list">
+                    <li>Suporte eficiente e curadoria.</li>
+                    <li>Segurança de dados e transações.</li>
+                    <li>Crescimento da comunidade de criadores.</li>
+                </ul>
             </div>
         </div>
-    </div>
-    
+
+        <section class="security-bar">
+            <div class="security-text">
+                <h3>Infraestrutura de Classe Mundial</h3>
+                <p>Utilizamos Google Firebase em nossa infraestrutura e Mercado Pago para proteção dos pagamentos.</p>
+            </div>
+            <div class="security-logos">
+                <div class="logo-item">
+                    <img src="../icons/firebase_pb.svg" alt="Google Firebase" class="svg-icon">
+                </div>
+                <div class="logo-item">
+                    <img src="../icons/mercado_pago_pb.svg" class="svg-icon mercado">
+                </div>
+            </div>
+        </section>
+
+        <section class="founder-box">
+            <div class="founder-content">
+                <h2>Por trás da ideia</h2>
+<p>A Holofly nasceu com um propósito simples: Conectar pequenos empreendedores a gente criativa. Quem precisa crescer e quem sabe criar.</p>
+<p>De um lado, negócios com potencial, mas pouca visibilidade. Do outro, criadores com talento, mas nem sempre com acesso à novos clientes.</p>
+                <p>A proposta é unir essas duas forças e criar um novo fluxo de oportunidades, contribuindo com o crescimento de ambos, de forma acessível, direta e mais alinhada com a realidade atual.</p>
+
+            </div>
+            <div class="founder-img-wrapper">
+                <div class="founder-img">
+                    <img src="../images/marcus.png" alt="Marcus Guimarães">
+                </div>
+                <div class="signature">Marcus Guimarães</div>
+            </div>
+        </section>
+
+    </main>
+
     <footer class="page-footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -453,36 +659,32 @@
             </p>
         </div>
     </footer>
-    
+
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
         const overlay = document.getElementById('overlay');
-        
+
         function toggleMenu() {
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
             overlay.classList.toggle('active');
-        }
-        
-        menuToggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-        
-        function checkScreenSize() {
-            const logoText = document.querySelector('.logo-text');
-            const logoImg = document.querySelector('.logo-img');
             
-            if (window.innerWidth <= 768) {
-                logoText.style.display = 'none';
-                if (logoImg) logoImg.style.display = 'block';
+            // Animação do ícone
+            const spans = menuToggle.querySelectorAll('span');
+            if(navMenu.classList.contains('active')) {
+                spans[0].style.transform = 'translateY(9px) rotate(45deg)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'translateY(-9px) rotate(-45deg)';
             } else {
-                logoText.style.display = 'block';
-                if (logoImg) logoImg.style.display = 'none';
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
             }
         }
-        
-        window.addEventListener('load', checkScreenSize);
-        window.addEventListener('resize', checkScreenSize);
+
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5KKY33ZGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E5KKY33ZGF');
+</script>
+    
     <link rel="canonical" href="https://holofly.com.br/criativos" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -375,44 +384,100 @@
         </div>
     </footer>
 
-    <script>
-        // 1. Inicializar Parallax
-        var rellax = new Rellax('.rellax', {
-            center: true,
-            round: true,
-            vertical: true,
-            horizontal: false
-        });
+<script>
+    // 1. Inicializar Parallax
+    var rellax = new Rellax('.rellax', {
+        center: true,
+        round: true,
+        vertical: true,
+        horizontal: false
+    });
 
-        // 2. Menu hamburguer
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        const overlay = document.getElementById('overlay');
+    // 2. Capturar origem do cartaz
+    const params = new URLSearchParams(window.location.search);
+    const origem = params.get('origem');
 
-        function toggleMenu() {
-            navMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
+    if (origem) {
+        localStorage.setItem('holofly_origem', origem);
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'acesso_cartaz', {
+                origem: origem
+            });
         }
-        menuToggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
+    }
 
-        // 3. Lógica do botão de download
-        const startButton = document.getElementById('startButton');
-        const qrWrapper = document.getElementById('qrWrapper');
+    const origemSalva = origem || localStorage.getItem('holofly_origem') || 'sem_origem';
 
-        startButton.addEventListener('click', function() {
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            
-            if (/iPhone|iPad|iPod/i.test(userAgent)) {
-                window.location.href = "https://apps.apple.com/br/app/holofly-criativo/id6757938856";
-            } else if (/Android/i.test(userAgent)) {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.holofly.criativo";
-            } else {
-                // Desktop: mostra o QR Code
-                startButton.style.display = 'none';
-                qrWrapper.classList.add('show');
+    // 3. Menu hamburguer
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+        navMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    // 4. Lógica do botão de download
+    const startButton = document.getElementById('startButton');
+    const qrWrapper = document.getElementById('qrWrapper');
+
+    const appStoreUrl = "https://apps.apple.com/br/app/holofly-criativo/id6757938856";
+    const playStoreUrl = "https://play.google.com/store/apps/details?id=com.holofly.criativo";
+
+    function trackDownloadClick(loja) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'click_download', {
+                origem: origemSalva,
+                loja: loja
+            });
+        }
+    }
+
+    startButton.addEventListener('click', function() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPhone|iPad|iPod/i.test(userAgent)) {
+            trackDownloadClick('app_store');
+
+            setTimeout(function() {
+                window.location.href = appStoreUrl;
+            }, 300);
+
+        } else if (/Android/i.test(userAgent)) {
+            trackDownloadClick('play_store');
+
+            setTimeout(function() {
+                window.location.href = playStoreUrl;
+            }, 300);
+
+        } else {
+            if (typeof gtag === 'function') {
+                gtag('event', 'mostrar_qrcode_desktop', {
+                    origem: origemSalva
+                });
             }
+
+            startButton.style.display = 'none';
+            qrWrapper.classList.add('show');
+        }
+    });
+
+    // 5. Rastrear cliques diretos nos botões das lojas
+    const storeLinks = document.querySelectorAll('.store-buttons a');
+
+    storeLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            const href = link.getAttribute('href');
+            const loja = href.includes('apps.apple.com') ? 'app_store' : 'play_store';
+
+            trackDownloadClick(loja);
         });
-    </script>
+    });
+</script>
 </body>
 </html>

@@ -305,7 +305,33 @@
                 background-color: #111;
             }
         }
-    </style>
+</style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5KKY33ZGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-E5KKY33ZGF');
+
+  // Captura o parâmetro ?src=c01, c02, c03...
+  const params = new URLSearchParams(window.location.search);
+  const src = params.get('src');
+
+  if (src) {
+    gtag('event', 'qr_scan', {
+      qr_code: src
+    });
+
+    console.log('QR identificado:', src);
+  }
+</script>
+
 </head>
 <body>
 

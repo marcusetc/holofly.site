@@ -12,7 +12,7 @@
     
     <link rel="canonical" href="https://holofly.com.br/criativos" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#000000">
 
@@ -27,9 +27,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="/icons/favicon3232.png" type="image/x-icon">
-
-    <!-- Biblioteca Rellax para o efeito Parallax -->
-    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
 
     <style>
         * {
@@ -71,7 +68,6 @@
             display: none;
         }
 
-        /* Menu Hamburguer */
         .menu-toggle {
             cursor: pointer;
             display: flex;
@@ -123,80 +119,258 @@
 
         .overlay.active { display: block; }
 
-        /* Hero Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 20px 20px 60px;
-            position: relative;
+        .new-main-content {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
-
-        .hero h1 {
-            font-size: clamp(2rem, 8vw, 3.2rem);
-            line-height: 1.1;
+        
+        .new-section {
+            padding: 80px 8%;
+        }
+        .new-container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+        .new-tag {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #111;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        h1.new-h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
             font-weight: 800;
-            margin-bottom: 15px;
             background: linear-gradient(180deg, #FFFFFF 0%, #AFAFAF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: #A0A0A0;
-            max-width: 500px;
-            margin-bottom: 30px;
+        h2.new-h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
-
-        /* Container do Mockup Parallax */
-        .parallax-container {
-            position: relative;
-            width: 100%;
-            height: 420px;
+        h3.new-h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .new-p {
+            color: #bdbdbd;
+            font-size: 18px;
+            max-width: 720px;
+        }
+        .btn-new {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 16px 26px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-secondary-new {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.15);
+            margin-left: 12px;
+        }
+        .hero-new {
+            min-height: auto;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin: 20px 0;
+            background: radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 45%), #000;
+            padding: 60px 8% 40px;
         }
-
-        .parallax-container::before {
-            content: '';
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(64, 224, 208, 0.15) 0%, rgba(0,0,0,0) 70%);
-            z-index: 1;
+        .hero-grid-new {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
         }
-
-        /* Celular de Trás (Secundário) */
-        .mockup-img.back {
-            width: 45vw;
-            max-width: 190px;
-            z-index: 4;
-            transform: rotate(-12deg) translateX(-40px);
-            opacity: 0.8;
+        .hero-media-new {
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.08);
+            min-height: 420px;
+            border-radius: 36px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03);
         }
-
-        /* Celular da Frente (Principal) */
-        .mockup-img.front {
-            width: 50vw;
-            max-width: 210px;
-            z-index: 6;
-            transform: rotate(8deg) translateX(30px);
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9));
+        .hero-media-new img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 24px;
         }
-
-        /* Elementos flutuantes (moedas, icones) */
-        .floating-element {
-            position: absolute;
-            width: 45px;
-            opacity: 0.7;
-            z-index: 4;
+        .cards-new {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 42px;
         }
+        .card-new {
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            padding: 30px;
+        }
+        .number-new {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-weight: bold;
+        }
+        .split-new {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .media-placeholder-new {
+            min-height: 360px;
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .media-placeholder-new img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 24px;
+        }
+        .pain-list-new {
+            display: grid;
+            gap: 14px;
+            margin-top: 30px;
+        }
+        .pain-item-new {
+            background: #111111;
+            padding: 18px 22px;
+            border-radius: 18px;
+            font-size: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .bg-dark-new {
+            background: #0b0b0b;
+        }
+        .cta-final-new {
+            background: #000;
+            text-align: center;
+            border-radius: 40px;
+            padding: 70px 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+            
+        }
+        .cta-final-new .new-p {
+    max-width: 720px;
+    margin: 0 auto 24px;
+    text-align: center;
+}
 
-        /* Botão de Ação com Degradê Profissional */
+.portfolio-stack-new {
+    position: relative;
+    width: 100%;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.portfolio-stack-new img {
+    position: absolute;
+    width: 68%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 24px;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.65);
+}
+
+.portfolio-stack-new .portfolio-back-left {
+    transform: translateX(-48%) translateY(12px) scale(0.86) rotate(-5deg);
+    opacity: 0.95;
+    z-index: 1;
+}
+
+.portfolio-stack-new .portfolio-middle {
+    transform: translateX(-6%) translateY(2px) scale(0.94) rotate(-1deg);
+    opacity: 0.98;
+    z-index: 2;
+}
+
+.portfolio-stack-new .portfolio-front {
+    transform: translateX(28%) translateY(-6px) scale(1);
+    opacity: 1;
+    z-index: 3;
+}
+@media (max-width: 900px) {
+    .hero-grid-new, .split-new {
+        grid-template-columns: 1fr;
+    }
+    .cards-new {
+        grid-template-columns: 1fr;
+    }
+    .new-section {
+        padding: 60px 6%;
+    }
+    .hero-new {
+        padding: 40px 6%;
+    }
+    .btn-secondary-new {
+        margin-left: 0;
+        margin-top: 12px;
+        display: inline-block;
+    }
+
+    .portfolio-stack-new {
+        min-height: 340px;
+        width: 100%;
+        transform: translateX(10px);
+    }
+
+    .portfolio-stack-new img {
+        width: 62%;
+        max-width: 240px;
+    }
+
+    .portfolio-stack-new .portfolio-back-left {
+        transform: translateX(-36%) translateY(12px) scale(0.84) rotate(-5deg);
+    }
+
+    .portfolio-stack-new .portfolio-middle {
+        transform: translateX(-4%) translateY(2px) scale(0.92) rotate(-1deg);
+    }
+
+    .portfolio-stack-new .portfolio-front {
+        transform: translateX(26%) translateY(-6px) scale(1);
+    }
+}
+        
         .cta-button {
             display: inline-flex;
             align-items: center;
@@ -216,19 +390,16 @@
             transition: transform 0.3s ease;
             position: relative;
             z-index: 10;
+            margin-top: 20px;
         }
-
         .cta-button:active { transform: scale(0.95); }
-
         .qr-wrapper { display: none; margin-top: 20px; text-align: center; }
         .qr-wrapper.show { display: block; }
         .qr-code-img { width: 180px; background: #fff; padding: 10px; border-radius: 12px; }
-
-        .store-section { margin-top: 40px; }
-        .store-buttons { display: flex; gap: 15px; justify-content: center; }
+        .store-section { margin-top: 30px; margin-bottom: 20px; }
+        .store-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
         .store-buttons img { height: 45px; }
-
-        /* Footer mantido do original */
+        
         .page-footer {
             background-color: transparent;
             padding: 2rem 1rem;
@@ -237,100 +408,60 @@
             width: 100%;
             z-index: 3;
         }
-
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             text-align: left;
         }
-
         .social-icons-footer {
             margin-bottom: 1.5rem;
             text-align: left;
         }
-
         .social-icons-footer a {
             display: inline-block;
             margin-right: 15px;
             transition: transform 0.3s ease;
         }
-
-        .social-icons-footer a:hover {
-            transform: scale(1.08);
-        }
-
+        .social-icons-footer a:hover { transform: scale(1.08); }
         .social-icons-footer img {
             width: 32px;
             height: 32px;
         }
-
         .footer-links {
             margin-bottom: 1rem;
         }
-
         .footer-links a {
             color: #ccc;
             text-decoration: none;
             margin-right: 10px;
             font-size: 0.9rem;
         }
-
-        .footer-links a:hover {
-            color: #fff;
-        }
-
+        .footer-links a:hover { color: #fff; }
         .footer-text {
             margin: 0;
             font-size: 0.875rem;
             color: #ccc;
             line-height: 1.5;
         }
-
         .footer-text span {
             display: inline-block;
             margin-right: 15px;
         }
-
         @media (max-width: 768px) {
             .logo-text { display: none; }
             .logo-img { display: block; }
-            .hero { padding-top: 10px; }
-            
+            .page-footer {
+                background-color: #111;
+            }
             .footer-text span {
                 display: block;
                 margin: 2px 0;
             }
-
-            .page-footer {
-                background-color: #111;
-            }
         }
-</style>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5KKY33ZGF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'G-E5KKY33ZGF');
-
-  // Captura o parâmetro ?src=c01, c02, c03...
-  const params = new URLSearchParams(window.location.search);
-  const src = params.get('src');
-
-  if (src) {
-    gtag('event', 'qr_scan', {
-      qr_code: src
-    });
-
-    console.log('QR identificado:', src);
-  }
-</script>
+        .new-main-content a {
+            text-decoration: none;
+        }
+    </style>
 
 </head>
 <body>
@@ -355,37 +486,168 @@
 
     <div class="overlay" id="overlay"></div>
 
-    <main class="hero">
-        <h1>Transforme suas edições em dinheiro no bolso.</h1>
-        <p>Conectamos criativos a empreendedores reais. Sem burocracia, direto pelo app.</p>
-
-        <!-- AREA DO MOCKUP COM PARALLAX -->
-        <div class="parallax-container">
-            <!-- Mockup de Trás (use outra tela do app aqui) -->
-            <img src="/icons/mockup-celular-2.png" class="mockup-img back rellax" data-rellax-speed="-0.5" alt="Interface Holofly">
-
-            <!-- Mockup da Frente (O principal de ganhos) -->
-            <img src="/icons/mockup-celular.png" class="mockup-img front rellax" data-rellax-speed="-1.5" alt="Ganhos Holofly">
-        </div>
-
-        <button type="button" class="cta-button" id="startButton">
-            QUERO COMEÇAR AGORA
-        </button>
-
-        <div class="qr-wrapper" id="qrWrapper">
-            <p style="margin-bottom: 10px; color: #ccc;">Escaneie para baixar</p>
-            <img src="/icons/qr-code.svg" class="qr-code-img" alt="QR Code">
-        </div>
-
-        <div class="store-section">
-            <div class="store-buttons">
-                <a href="https://apps.apple.com/br/app/holofly-criativo/id6757938856" target="_blank"><img src="/icons/app-store-badge.svg" alt="App Store"></a>
-                <a href="https://play.google.com/store/apps/details?id=com.holofly.criativo" target="_blank"><img src="/icons/google-play-badge.svg" alt="Play Store"></a>
+    <div class="new-main-content">
+        <div class="hero-new">
+            <div class="new-container hero-grid-new">
+                <div>
+                    <h1 class="new-h1">Ganhe dinheiro criando vídeos para quem precisa crescer</h1>
+                    <p class="new-p">Conectamos você a empreendedores que precisam de vídeos para impulsionar seus negócios.</p>
+                    
+                    <div>
+                        <button type="button" class="cta-button" id="startButton">
+                            QUERO COMEÇAR AGORA
+                        </button>
+                        <div class="qr-wrapper" id="qrWrapper">
+                            <p style="margin-bottom: 10px; color: #ccc;">Escaneie para baixar</p>
+                            <img src="/icons/qr-code.svg" class="qr-code-img" alt="QR Code">
+                        </div>
+                    </div>
+                    
+                    <div class="store-section">
+                        <div class="store-buttons">
+                            <a href="https://apps.apple.com/br/app/holofly-criativo/id6757938856" target="_blank"><img src="/icons/app-store-badge.svg" alt="App Store"></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.holofly.criativo" target="_blank"><img src="/icons/google-play-badge.svg" alt="Play Store"></a>
+                        </div>
+                    </div>
+                </div>
+                    <img src="images/card1.png" alt="Holofly Creative" style="width:100%; height:auto; border-radius:24px;" onerror="this.src='https://placehold.co/400x500/1a1a1a/white?text=Holofly+App'">
             </div>
         </div>
-    </main>
 
-    <!-- Footer mantido do original com links de Termos e Política -->
+        <section class="new-section">
+            <div class="new-container split-new">
+                <div>
+                    <h2 class="new-h2">Estamos formando a primeira base de usuários</h2>
+                    <p class="new-p">Participe da criação de uma comunidade que aproxima você, profissional criativo, de novos clientes.</p>
+                    <p class="new-p" style="margin-top: 18px;">Os primeiros usuários cadastrados terão prioridade nos primeiros pedidos recebidos pela plataforma.</p>
+                </div>
+<div class="portfolio-stack-new">
+    <img src="images/portfolio1.png" alt="Portfólio Festa" class="portfolio-back-left">
+    <img src="images/portfolio2.png" alt="Portfólio Gastronomia" class="portfolio-middle">
+    <img src="images/portfolio3.png" alt="Portfólio Arquitetura" class="portfolio-front">
+</div>           
+            </div>
+        </section>
+
+        <section class="new-section bg-dark-new">
+            <div class="new-container split-new">
+                <div>
+                    <h2 class="new-h2">Não dependa só do direct para conseguir trabalho</h2>
+                    <p class="new-p">Em vez gastar horas negociando, explicando preço e cobrando, experimente um fluxo mais prático.</p>
+                </div>
+                <div class="pain-list-new">
+                    <div class="pain-item-new">Sem negociação infinita</div>
+                    <div class="pain-item-new">Sem cliente sumindo depois do orçamento</div>
+                    <div class="pain-item-new">Sem cobrança manual</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="new-section">
+            <div class="new-container">
+                <h2 class="new-h2">Você cria. Nós cuidamos do resto.</h2>
+                <div class="cards-new">
+                    <div class="card-new">
+                        <h3 class="new-h3">Receba pedidos</h3>
+                        <p class="new-p">Briefing, formato e prazo. Visualize tudo antes de aceitar.</p>
+                    </div>
+                    <div class="card-new">
+                        <h3 class="new-h3">Produza o conteúdo</h3>
+                        <p class="new-p">Com as ferramentas que você já utiliza, usando sua própria estrutura.</p>
+                    </div>
+                    <div class="card-new">
+                        <h3 class="new-h3">Receba pelo trabalho</h3>
+                        <p class="new-p">A plataforma repassa o valor pago de forma segura e previsível.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="new-section">
+            <div class="new-container split-new">
+                    <img src="images/card3.png" alt="Novo pedido recebido" style="width:100%; height:auto; border-radius:24px;" onerror="this.src='https://placehold.co/500x400/1a1a1a/white?text=Pedidos+recebidos'">
+
+            </div>
+        </section>
+
+        <section class="new-section bg-dark-new">
+            <div class="new-container">
+                <h2 class="new-h2">O que esperamos que você produza?</h2>
+                <p class="new-p">O foco inicial são vídeos curtos para comércios, empresas e pequenos empreendedores que precisam se comunicar melhor. Com o amadurecimento da plataforma, outros formatos de conteúdo poderão ser incorporados gradualmente.</p>
+                <div class="cards-new">
+                    <div class="card-new">
+                        <h3 class="new-h3">Redes sociais e OOH</h3>
+                        <p class="new-p">Conteúdos para Instagram, TikTok e mídia externa.</p>
+                    </div>
+                    <div class="card-new">
+                        <h3 class="new-h3">Produtos ou serviços</h3>
+                        <p class="new-p">Materiais simples para apresentar o que uma marca vende ou oferece.</p>
+                    </div>
+                    <div class="card-new">
+                        <h3 class="new-h3">Institucionais</h3>
+                        <p class="new-p">Conteúdos que expliquem ideias, negócios, campanhas ou lançamentos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="new-section">
+            <div class="new-container">
+                <h2 class="new-h2">Quem estamos buscando?</h2>
+                <p class="new-p">Queremos profissionais criativos, responsáveis e interessados em ter uma renda extra.</p>
+                <div class="cards-new">
+                    <div class="card-new">
+                        <h3 class="new-h3">Boa comunicação visual</h3>
+                        <p class="new-p">Capacidade de transformar ideias em vídeos claros e objetivos.</p>
+                    </div>
+                    <div class="card-new">
+                        <h3 class="new-h3">Criatividade</h3>
+                        <p class="new-p">Olhar próprio para atender pedidos de forma eficaz.</p>
+                    </div>
+                    <div class="card-new">
+                        <h3 class="new-h3">Comprometimento</h3>
+                        <p class="new-p">Respeito aos prazos e qualidade de entrega.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="new-section bg-dark-new">
+            <div class="new-container">
+                <h2 class="new-h2">Antes de começar</h2>
+                <div class="cards-new">
+                    <div class="card-new">
+                        <h3 class="new-h3">Preciso pagar para entrar?</h3>
+                        <p class="new-p">Não. O cadastro do seu portfólio é gratuito.</p>
+                    </div>
+                    <div class="card-new">
+                        <h3 class="new-h3">Sou obrigado a aceitar pedidos?</h3>
+                        <p class="new-p">Não. Você aceita apenas pedidos compatíveis com seu perfil e disponibilidade.</p>
+                    </div>
+                    <div class="card-new">
+                        <h3 class="new-h3">Preciso trabalhar na área?</h3>
+                        <p class="new-p">Não necessariamente. Buscamos pessoas criativas, responsáveis e com trabalho de qualidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cadastro" class="new-section">
+            <div class="new-container">
+                <div class="cta-final-new">
+                    <h2 class="new-h2">Faça parte da comunidade.</h2>
+                    <p class="new-p">Baixe o app e cadastre-se em uma plataforma criada para conectar você a novas oportunidades.</p>
+<a href="#" class="cta-button" id="cadastrarLink">BAIXAR AGORA</a>
+
+<div class="qr-wrapper" id="qrWrapperCadastro">
+    <p style="margin-bottom: 10px; color: #ccc;">Escaneie para baixar</p>
+    <img src="/icons/qr-code.svg" class="qr-code-img" alt="QR Code">
+</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <footer class="page-footer">
         <div class="footer-content">
             <div class="social-icons-footer">
@@ -411,31 +673,19 @@
     </footer>
 
 <script>
-    // 1. Inicializar Parallax
-    var rellax = new Rellax('.rellax', {
-        center: true,
-        round: true,
-        vertical: true,
-        horizontal: false
-    });
 
-    // 2. Capturar origem do cartaz
     const params = new URLSearchParams(window.location.search);
     const origem = params.get('origem');
 
     if (origem) {
         localStorage.setItem('holofly_origem', origem);
-
         if (typeof gtag === 'function') {
-            gtag('event', 'acesso_cartaz', {
-                origem: origem
-            });
+            gtag('event', 'acesso_cartaz', { origem: origem });
         }
     }
 
     const origemSalva = origem || localStorage.getItem('holofly_origem') || 'sem_origem';
 
-    // 3. Menu hamburguer
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     const overlay = document.getElementById('overlay');
@@ -444,11 +694,9 @@
         navMenu.classList.toggle('active');
         overlay.classList.toggle('active');
     }
+    if(menuToggle) menuToggle.addEventListener('click', toggleMenu);
+    if(overlay) overlay.addEventListener('click', toggleMenu);
 
-    menuToggle.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', toggleMenu);
-
-    // 4. Lógica do botão de download
     const startButton = document.getElementById('startButton');
     const qrWrapper = document.getElementById('qrWrapper');
 
@@ -457,53 +705,66 @@
 
     function trackDownloadClick(loja) {
         if (typeof gtag === 'function') {
-            gtag('event', 'click_download', {
-                origem: origemSalva,
-                loja: loja
-            });
+            gtag('event', 'click_download', { origem: origemSalva, loja: loja });
         }
     }
 
-    startButton.addEventListener('click', function() {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-        if (/iPhone|iPad|iPod/i.test(userAgent)) {
-            trackDownloadClick('app_store');
-
-            setTimeout(function() {
-                window.location.href = appStoreUrl;
-            }, 300);
-
-        } else if (/Android/i.test(userAgent)) {
-            trackDownloadClick('play_store');
-
-            setTimeout(function() {
-                window.location.href = playStoreUrl;
-            }, 300);
-
-        } else {
-            if (typeof gtag === 'function') {
-                gtag('event', 'mostrar_qrcode_desktop', {
-                    origem: origemSalva
-                });
+    if(startButton) {
+        startButton.addEventListener('click', function() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                trackDownloadClick('app_store');
+                setTimeout(() => { window.location.href = appStoreUrl; }, 300);
+            } else if (/Android/i.test(userAgent)) {
+                trackDownloadClick('play_store');
+                setTimeout(() => { window.location.href = playStoreUrl; }, 300);
+            } else {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'mostrar_qrcode_desktop', { origem: origemSalva });
+                }
+                startButton.style.display = 'none';
+                if(qrWrapper) qrWrapper.classList.add('show');
             }
+        });
+    }
 
-            startButton.style.display = 'none';
-            qrWrapper.classList.add('show');
-        }
-    });
-
-    // 5. Rastrear cliques diretos nos botões das lojas
     const storeLinks = document.querySelectorAll('.store-buttons a');
-
     storeLinks.forEach(function(link) {
         link.addEventListener('click', function() {
             const href = link.getAttribute('href');
             const loja = href.includes('apps.apple.com') ? 'app_store' : 'play_store';
-
             trackDownloadClick(loja);
         });
     });
+
+const cadastrarBtn = document.getElementById('cadastrarLink');
+const qrWrapperCadastro = document.getElementById('qrWrapperCadastro');
+
+if(cadastrarBtn) {
+    cadastrarBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPhone|iPad|iPod/i.test(ua)) {
+            trackDownloadClick('app_store_cadastro');
+            window.location.href = appStoreUrl;
+        } else if (/Android/i.test(ua)) {
+            trackDownloadClick('play_store_cadastro');
+            window.location.href = playStoreUrl;
+        } else {
+            if (typeof gtag === 'function') {
+                gtag('event', 'mostrar_qrcode_desktop_cadastro', { origem: origemSalva });
+            }
+
+            cadastrarBtn.style.display = 'none';
+
+            if(qrWrapperCadastro) {
+                qrWrapperCadastro.classList.add('show');
+            }
+        }
+    });
+}
 </script>
 </body>
 </html>

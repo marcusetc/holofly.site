@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Sobre a Holofly</title>
+    <title>Sobre</title>
     <meta name="description" content="Conheça a história da Holofly, nossa missão de conectar empreendedores a talentos criativos.">
     
     <link rel="canonical" href="https://holofly.com.br/sobre/" />
     
-    <meta property="og:title" content="Sobre a Holofly - Nossa História e Propósito">
+    <meta property="og:title" content="Sobre - Nossa História e Propósito">
     <meta property="og:description" content="Conheça a Holofly: conectamos pequenos empreendedores a talentos criativos para criar oportunidades reais de crescimento.">
     <meta property="og:url" content="https://holofly.com.br/sobre/">
     <meta property="og:type" content="website">
@@ -17,13 +17,14 @@
     <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpeg">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sobre a Holofly - Nossa História e Propósito">
+    <meta name="twitter:title" content="Sobre - Nossa História e Propósito">
     <meta name="twitter:description" content="Conectamos pequenos empreendedores a talentos criativos para criar oportunidades reais de crescimento.">
-    <meta name="twitter:image" content="https://holofly.com.br/icons/twitter-image.jpg">
+    <meta name="twitter:image" content="https://holofly.com.br/icons/logofinal.jpeg">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="../icons/favicon3232.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="icon" href="../icons/favicon3232.png" type="image/png">
 
     <style>
         :root {
@@ -38,9 +39,6 @@
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -63,65 +61,7 @@
             background-color: #000; 
         }
         
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-        }
-
-                .logo-img {
-            height: 40px;
-            display: none;
-        }
-        
-        .menu-toggle {
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 30px;
-            height: 30px;
-            z-index: 1001;
-        }
-
         .logo span { color: var(--primary); }
-
-
-        .menu-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-                .menu-toggle span:nth-child(1) {
-            transform-origin: center;
-        }
-        
-        .menu-toggle span:nth-child(2) {
-            transform-origin: center;
-        }
-        
-        .menu-toggle span:nth-child(3) {
-            transform-origin: center;
-        }
-        
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-        
         .nav-menu {
             position: fixed;
             top: 0;
@@ -132,29 +72,6 @@
             padding: 80px 20px 20px;
             transition: right 0.3s ease;
             z-index: 999;
-        }
-
-        .nav-menu.active {
-            right: 0;
-        }
-        
-        .nav-menu ul {
-            list-style: none;
-        }
-        
-        .nav-menu li {
-            margin-bottom: 15px;
-        }
-        
-        .nav-menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-menu a:hover {
-            color: #ccc;
         }
 
         .overlay {
@@ -399,39 +316,6 @@
             border-top: 0px solid #333;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: left; 
-        }
-
-        .footer-links {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            margin-right: 10px;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: #fff;
-        }
-
-        .footer-text {
-            margin: 0;
-            font-size: 0.875rem;
-            color: #ccc;
-            line-height: 1.5;
-        }
-
-        .footer-text span {
-            display: inline-block;
-            margin-right: 15px;
-        }
-        
         @media (max-width: 991px) and (min-width: 769px) {
             .founder-box {
                 flex-direction: column;
@@ -532,29 +416,30 @@
 }
     </style>
 </head>
-<body>
+<body data-global-nav="true" data-responsive-logo="true" data-shared-footer-mobile="true">
 
-    <header>
+    <header class="site-header">
         <a href="../index.html" class="logo">
             <span class="logo-text">HOLOFLY</span>
-            <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img">
+            <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img" decoding="async">
         </a>
-        <div class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
+        <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../sobre/index.html" aria-current="page">Sobre</a></li>
+                <li><a href="../criativos/index.html">Criativos</a></li>
+                <li><a href="../perguntasfrequentes/index.html">Como funciona</a></li>
+                <li><a href="../contato/index.html">Contato</a></li>
+            </ul>
+        </nav>
     </header>
     
-    <nav class="nav-menu" id="navMenu">
-        <ul>
-            <li><a href="../">Início</a></li>
-            <li><a href="../perguntasfrequentes">Perguntas Frequentes</a></li>
-            <li><a href="../contato">Contato</a></li>
-        </ul>
-    </nav>
-    
-    <div class="overlay" id="overlay"></div>
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
 
     <main class="container">
         
@@ -620,10 +505,10 @@
             </div>
             <div class="security-logos">
                 <div class="logo-item">
-                    <img src="../icons/firebase_pb.svg" alt="Google Firebase" class="svg-icon">
+                    <img src="../icons/firebase_pb.svg" alt="Google Firebase" class="svg-icon" width="749" height="205" loading="lazy" decoding="async">
                 </div>
                 <div class="logo-item">
-                    <img src="../icons/mercado_pago_pb.svg" class="svg-icon mercado">
+                    <img src="../icons/mercado_pago_pb.svg" alt="Mercado Pago" class="svg-icon mercado" width="1049" height="425" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
@@ -638,7 +523,7 @@
             </div>
             <div class="founder-img-wrapper">
                 <div class="founder-img">
-                    <img src="../images/marcus.png" alt="Marcus Guimarães">
+                    <img src="../images/marcus.png" alt="Marcus Guimarães" width="636" height="934" loading="lazy" decoding="async">
                 </div>
                 <div class="signature">Marcus Guimarães</div>
             </div>
@@ -649,8 +534,8 @@
     <footer class="page-footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="../termos/">Termos de uso</a> 
-                <a href="../politica/">Política de privacidade</a>
+                <a href="../termos/index.html">Termos de uso</a> 
+                <a href="../politica/index.html">Política de privacidade</a>
             </div>
             <p class="footer-text">
                 <span>&copy; 2026 Holofly. Todos os direitos reservados.</span>
@@ -660,31 +545,6 @@
         </div>
     </footer>
 
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        const overlay = document.getElementById('overlay');
-
-        function toggleMenu() {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            
-            // Animação do ícone
-            const spans = menuToggle.querySelectorAll('span');
-            if(navMenu.classList.contains('active')) {
-                spans[0].style.transform = 'translateY(9px) rotate(45deg)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'translateY(-9px) rotate(-45deg)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        }
-
-        menuToggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-    </script>
+    <script src="../assets/js/global.js"></script>
 </body>
 </html>

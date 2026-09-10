@@ -4,15 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fale Conosco - Holofly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="icons/favicon3232.png" type="image/x-icon">
+  <meta name="description" content="Entre em contato com a Holofly para enviar dúvidas, solicitações ou sugestões.">
+  <link rel="canonical" href="https://holofly.com.br/contato/">
+  <meta property="og:title" content="Fale Conosco - Holofly">
+  <meta property="og:description" content="Entre em contato com a Holofly para enviar dúvidas, solicitações ou sugestões.">
+  <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpeg">
+  <meta property="og:url" content="https://holofly.com.br/contato/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fale Conosco - Holofly">
+  <meta name="twitter:description" content="Entre em contato com a Holofly para enviar dúvidas, solicitações ou sugestões.">
+  <meta name="twitter:image" content="https://holofly.com.br/icons/logofinal.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="icon" href="../icons/favicon3232.png" type="image/png">
 
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
 
@@ -35,62 +43,6 @@
       z-index: 1000;
     }
     
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-    }
-    
-    .logo-img {
-      height: 40px;
-      display: none;
-    }
-    
-    .menu-toggle {
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 30px;
-      height: 30px;
-      z-index: 1001;
-    }
-    
-    .menu-toggle span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background-color: #fff;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-
-    .menu-toggle span:nth-child(1) {
-    transform-origin: center;
-}
-
-.menu-toggle span:nth-child(2) {
-    transform-origin: center;
-}
-
-.menu-toggle span:nth-child(3) {
-    transform-origin: center;
-}
-
-.menu-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-    
     .nav-menu {
       position: fixed;
       top: 0;
@@ -101,29 +53,6 @@
       padding: 80px 20px 20px;
       transition: right 0.3s ease;
       z-index: 999;
-    }
-    
-    .nav-menu.active {
-      right: 0;
-    }
-    
-    .nav-menu ul {
-      list-style: none;
-    }
-    
-    .nav-menu li {
-      margin-bottom: 15px;
-    }
-    
-    .nav-menu a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: color 0.3s ease;
-    }
-    
-    .nav-menu a:hover {
-      color: #ccc;
     }
     
     .overlay {
@@ -139,11 +68,6 @@
       z-index: 998;
     }
     
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
     .main-content {
       max-width: 1000px;
       margin: 100px auto 0;
@@ -151,7 +75,7 @@
       min-height: calc(100vh - 200px);
     }
 
-    h2 {
+    h1 {
       font-size: 1.6rem;
       margin: 25px 0 15px;
       border-left: 4px solid #fff;
@@ -240,39 +164,6 @@
       border-top: 0px solid #333;
     }
 
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .footer-links {
-      margin-bottom: 1rem;
-    }
-
-    .footer-links a {
-      color: #ccc;
-      text-decoration: none;
-      margin-right: 10px;
-      font-size: 0.9rem;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .footer-text {
-      margin: 0;
-      font-size: 0.875rem;
-      color: #ccc;
-      line-height: 1.5;
-    }
-
-    .footer-text span {
-      display: inline-block;
-      margin-right: 15px;
-    }
-
     .status-message {
       padding: 12px;
       border-radius: 5px;
@@ -349,11 +240,6 @@
     }
 
     @media (max-width: 768px) {
-      .footer-text span {
-        display: block;
-        margin: 2px 0;
-      }
-      
       .name-row {
         flex-direction: column;
         gap: 15px;
@@ -361,34 +247,33 @@
     }
   </style>
 </head>
-<body>
-  <header>
+<body data-global-nav="true" data-responsive-logo="true" data-shared-footer-mobile="true">
+  <header class="site-header">
     <a href="../index.html" class="logo">
       <span class="logo-text">HOLOFLY</span>
-      <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img">
+      <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img" decoding="async">
     </a>
-<div class="menu-toggle" id="menuToggle">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../sobre/index.html">Sobre</a></li>
+        <li><a href="../criativos/index.html">Criativos</a></li>
+        <li><a href="../perguntasfrequentes/index.html">Como funciona</a></li>
+        <li><a href="../contato/index.html" aria-current="page">Contato</a></li>
+      </ul>
+    </nav>
   </header>
   
-  <nav class="nav-menu" id="navMenu">
-    <ul>
-      <li><a href="../">Início</a></li>
-      <li><a href="../sobre">Sobre a Holofly</a></li>
-      <li><a href="../perguntasfrequentes">Perguntas Frequentes</a></li>
-    </ul>
-  </nav>
-  
-  <div class="overlay" id="overlay"></div>
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
 
-  <div class="main-content">
+  <main class="main-content">
     <div class="content">
-      <h2>Envie uma Mensagem</h2>
-      
-      <div id="statusMessage"></div>
+      <h1>Envie uma Mensagem</h1>
       
       <form id="contactForm" name="form" method="POST" accept-charset="UTF-8" 
             action="https://forms.zohopublic.com/marcushol1/form/Contato/formperma/OdQ0Tq8e7zEsDwj62_eAIXCdJ5fJfXh1yTDmLQ91X54/htmlRecords/submit">
@@ -425,20 +310,20 @@
     </div>
 
     <div class="social-icons">
-      <a href="https://www.facebook.com/profile.php?id=61580622752588" target="_blank">
-        <img src="../icons/Facebook_Logo_Primary.png" alt="Facebook">
+      <a href="https://www.facebook.com/profile.php?id=61580622752588" target="_blank" rel="noopener noreferrer">
+        <img src="../icons/Facebook_Logo_Primary.png" alt="Facebook" width="2084" height="2084" loading="lazy" decoding="async">
       </a>
-      <a href="https://instagram.com/holoflybrasil" target="_blank">
-        <img src="../icons/Instagram_Glyph_White.png" alt="Instagram">
+      <a href="https://instagram.com/holoflybrasil" target="_blank" rel="noopener noreferrer">
+        <img src="../icons/Instagram_Glyph_White.png" alt="Instagram" width="4322" height="4320" loading="lazy" decoding="async">
       </a>
     </div>
-  </div>
+  </main>
 
   <footer class="page-footer">
     <div class="footer-content">
       <div class="footer-links">
-        <a href="../termos/">Termos de uso</a> 
-        <a href="../politica/">Política de privacidade</a>
+        <a href="../termos/index.html">Termos de uso</a> 
+        <a href="../politica/index.html">Política de privacidade</a>
       </div>
       <p class="footer-text">
         <span>&copy; 2026 Holofly. Todos os direitos reservados.</span>
@@ -448,39 +333,10 @@
     </div>
   </footer>
 
+  <script src="../assets/js/global.js"></script>
   <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    const overlay = document.getElementById('overlay');
-    
-    function toggleMenu() {
-      menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      overlay.classList.toggle('active');
-    }
-    
-    menuToggle.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', toggleMenu);
-    
-    function checkScreenSize() {
-      const logoText = document.querySelector('.logo-text');
-      const logoImg = document.querySelector('.logo-img');
-      
-      if (window.innerWidth <= 768) {
-        logoText.style.display = 'none';
-        if (logoImg) logoImg.style.display = 'block';
-      } else {
-        logoText.style.display = 'block';
-        if (logoImg) logoImg.style.display = 'none';
-      }
-    }
-    
-    window.addEventListener('load', checkScreenSize);
-    window.addEventListener('resize', checkScreenSize);
-
     const contactForm = document.getElementById('contactForm');
     const submitButton = document.getElementById('submitButton');
-    const statusMessage = document.getElementById('statusMessage');
     const telefoneInput = document.getElementById('PhoneNumber');
 
     telefoneInput.addEventListener("input", function (e) {
@@ -544,43 +400,24 @@
     }
 
     contactForm.addEventListener('submit', function (e) {
-      e.preventDefault(); 
-
-      if (!validarFormulario()) return;
+      if (!validarFormulario()) {
+        e.preventDefault();
+        return;
+      }
 
       submitButton.disabled = true;
       submitButton.textContent = 'Enviando...';
       contactForm.classList.add('loading');
 
-      const formData = new FormData(contactForm);
-
-      const telefoneLimpo = telefoneInput.value.replace(/\D/g, '');
-      formData.set('PhoneNumber_countrycode', telefoneLimpo);
-
-      fetch(contactForm.action, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors' 
-      })
-      .then(() => {
-        showStatus('✅ Sua mensagem foi enviada com sucesso!', 'success');
-        contactForm.reset();
-      })
-      .catch(() => {
-        showStatus('❌ Ocorreu um erro ao enviar. Tente novamente.', 'error');
-      })
-      .finally(() => {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Enviar mensagem';
-        contactForm.classList.remove('loading');
-      });
+      telefoneInput.value = telefoneInput.value.replace(/\D/g, '');
     });
 
-    contactForm.addEventListener('input', function() {
-      if (statusMessage.innerHTML.includes('error')) {
-        statusMessage.innerHTML = '';
-      }
+    window.addEventListener('pageshow', function () {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Enviar mensagem';
+      contactForm.classList.remove('loading');
     });
+
   </script>
 </body>
 </html>

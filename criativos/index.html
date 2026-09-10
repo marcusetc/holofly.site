@@ -10,29 +10,33 @@
   gtag('config', 'G-E5KKY33ZGF');
 </script>
     
-    <link rel="canonical" href="https://holofly.com.br/criativos" />
+    <link rel="canonical" href="https://holofly.com.br/criativos/" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#000000">
 
     <title>Holofly Criativos - Transforme edições em renda</title>
+    <meta name="description" content="Conectamos universitários criativos a empreendedores reais. Sem burocracia.">
 
     <meta property="og:title" content="Holofly Criativos - Ganhe dinheiro criando vídeos">
     <meta property="og:description" content="Conectamos universitários criativos a empreendedores reais. Sem burocracia.">
     <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpeg">
-    <meta property="og:url" content="https://holofly.com.br/criativos">
+    <meta property="og:url" content="https://holofly.com.br/criativos/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Holofly">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="/icons/favicon3232.png" type="image/x-icon">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Holofly Criativos - Ganhe dinheiro criando vídeos">
+    <meta name="twitter:description" content="Conectamos universitários criativos a empreendedores reais. Sem burocracia.">
+    <meta name="twitter:image" content="https://holofly.com.br/icons/logofinal.jpeg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="icon" href="../icons/favicon3232.png" type="image/png">
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
 
@@ -191,7 +195,7 @@
             display: flex;
             align-items: center;
             background: radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 45%), #000;
-            padding: 60px 8% 40px;
+            padding: 140px 8% 40px;
         }
         .hero-grid-new {
             display: grid;
@@ -339,7 +343,7 @@
         padding: 60px 6%;
     }
     .hero-new {
-        padding: 40px 6%;
+        padding: 100px 6% 40px;
     }
     .btn-secondary-new {
         margin-left: 0;
@@ -408,45 +412,7 @@
             width: 100%;
             z-index: 3;
         }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        .social-icons-footer {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-        .social-icons-footer a {
-            display: inline-block;
-            margin-right: 15px;
-            transition: transform 0.3s ease;
-        }
         .social-icons-footer a:hover { transform: scale(1.08); }
-        .social-icons-footer img {
-            width: 32px;
-            height: 32px;
-        }
-        .footer-links {
-            margin-bottom: 1rem;
-        }
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            margin-right: 10px;
-            font-size: 0.9rem;
-        }
-        .footer-links a:hover { color: #fff; }
-        .footer-text {
-            margin: 0;
-            font-size: 0.875rem;
-            color: #ccc;
-            line-height: 1.5;
-        }
-        .footer-text span {
-            display: inline-block;
-            margin-right: 15px;
-        }
         @media (max-width: 768px) {
             .logo-text { display: none; }
             .logo-img { display: block; }
@@ -464,29 +430,30 @@
     </style>
 
 </head>
-<body>
+<body data-global-nav="true" data-responsive-logo="true" data-shared-footer-mobile="true">
 
-    <header>
-        <a href="/" class="logo">
+    <header class="site-header">
+        <a href="../index.html" class="logo">
             <span class="logo-text">HOLOFLY</span>
-            <img src="/icons/logo.png" alt="HOLOFLY" class="logo-img">
+            <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img" decoding="async">
         </a>
-        <div class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
             <span></span><span></span><span></span>
-        </div>
+        </button>
+        <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../sobre/index.html">Sobre</a></li>
+                <li><a href="../criativos/index.html" aria-current="page">Criativos</a></li>
+                <li><a href="../perguntasfrequentes/index.html">Como funciona</a></li>
+                <li><a href="../contato/index.html">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav class="nav-menu" id="navMenu">
-        <ul>
-            <li><a href="/sobre/">Sobre a Holofly</a></li>
-            <li><a href="/perguntasfrequentes/">Perguntas Frequentes</a></li>
-            <li><a href="/contato/">Contato</a></li>
-        </ul>
-    </nav>
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
 
-    <div class="overlay" id="overlay"></div>
-
-    <div class="new-main-content">
+    <main class="new-main-content">
         <div class="hero-new">
             <div class="new-container hero-grid-new">
                 <div>
@@ -499,18 +466,18 @@
                         </button>
                         <div class="qr-wrapper" id="qrWrapper">
                             <p style="margin-bottom: 10px; color: #ccc;">Escaneie para baixar</p>
-                            <img src="/icons/qr-code.svg" class="qr-code-img" alt="QR Code">
+                            <img src="../icons/qr-code.svg" class="qr-code-img" alt="QR Code" width="100" height="100" loading="lazy" decoding="async">
                         </div>
                     </div>
                     
                     <div class="store-section">
                         <div class="store-buttons">
-                            <a href="https://apps.apple.com/br/app/holofly-criativo/id6757938856" target="_blank"><img src="/icons/app-store-badge.svg" alt="App Store"></a>
-                            <a href="https://play.google.com/store/apps/details?id=com.holofly.criativo" target="_blank"><img src="/icons/google-play-badge.svg" alt="Play Store"></a>
+                            <a href="https://apps.apple.com/br/app/holofly-criativo/id6757938856" target="_blank" rel="noopener noreferrer"><img src="../icons/app-store-badge.svg" alt="App Store" width="120" height="40" decoding="async"></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.holofly.criativo" target="_blank" rel="noopener noreferrer"><img src="../icons/google-play-badge.svg" alt="Play Store" width="239" height="71" decoding="async"></a>
                         </div>
                     </div>
                 </div>
-                    <img src="/images/card1.png" alt="Holofly Creative" style="width:100%; height:auto; border-radius:24px;" onerror="this.src='https://placehold.co/400x500/1a1a1a/white?text=Holofly+App'">
+                    <img src="../images/card1.png" alt="Holofly Creative" width="1536" height="1024" decoding="async" style="width:100%; height:auto; border-radius:24px;" onerror="this.src='https://placehold.co/400x500/1a1a1a/white?text=Holofly+App'">
             </div>
         </div>
 
@@ -522,9 +489,9 @@
                     <p class="new-p" style="margin-top: 18px;">Os primeiros usuários cadastrados terão prioridade nos primeiros pedidos recebidos pela plataforma.</p>
                 </div>
 <div class="portfolio-stack-new">
-    <img src="/images/portfolio1.png" alt="Portfólio Festa" class="portfolio-back-left">
-    <img src="/images/portfolio2.png" alt="Portfólio Gastronomia" class="portfolio-middle">
-    <img src="/images/portfolio3.png" alt="Portfólio Arquitetura" class="portfolio-front">
+    <img src="../images/portfolio1.png" alt="Portfólio Festa" class="portfolio-back-left" width="992" height="1586" loading="lazy" decoding="async">
+    <img src="../images/portfolio2.png" alt="Portfólio Gastronomia" class="portfolio-middle" width="1019" height="1543" loading="lazy" decoding="async">
+    <img src="../images/portfolio3.png" alt="Portfólio Arquitetura" class="portfolio-front" width="1023" height="1537" loading="lazy" decoding="async">
 </div>           
             </div>
         </section>
@@ -565,7 +532,7 @@
 
         <section class="new-section">
             <div class="new-container split-new">
-                    <img src="/images/card3.png" alt="Novo pedido recebido" style="width:100%; height:auto; border-radius:24px;" onerror="this.src='https://placehold.co/500x400/1a1a1a/white?text=Pedidos+recebidos'">
+                    <img src="../images/card3.png" alt="Novo pedido recebido" width="1536" height="1024" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:24px;" onerror="this.src='https://placehold.co/500x400/1a1a1a/white?text=Pedidos+recebidos'">
 
             </div>
         </section>
@@ -641,27 +608,27 @@
 
 <div class="qr-wrapper" id="qrWrapperCadastro">
     <p style="margin-bottom: 10px; color: #ccc;">Escaneie para baixar</p>
-    <img src="/icons/qr-code.svg" class="qr-code-img" alt="QR Code">
+    <img src="../icons/qr-code.svg" class="qr-code-img" alt="QR Code" width="100" height="100" loading="lazy" decoding="async">
 </div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <footer class="page-footer">
         <div class="footer-content">
             <div class="social-icons-footer">
                 <a href="https://www.facebook.com/profile.php?id=61580622752588" target="_blank" rel="noopener noreferrer">
-                    <img src="/icons/Facebook_Logo_Primary.png" alt="Facebook">
+                    <img src="../icons/Facebook_Logo_Primary.png" alt="Facebook" width="2084" height="2084" loading="lazy" decoding="async">
                 </a>
                 <a href="https://instagram.com/holoflybrasil" target="_blank" rel="noopener noreferrer">
-                    <img src="/icons/Instagram_Glyph_White.png" alt="Instagram">
+                    <img src="../icons/Instagram_Glyph_White.png" alt="Instagram" width="4322" height="4320" loading="lazy" decoding="async">
                 </a>
             </div>
 
             <div class="footer-links">
-                <a href="/termos/">Termos de uso</a>
-                <a href="/politica/">Política de privacidade</a>
+                <a href="../termos/index.html">Termos de uso</a>
+                <a href="../politica/index.html">Política de privacidade</a>
             </div>
 
             <p class="footer-text">
@@ -672,6 +639,7 @@
         </div>
     </footer>
 
+<script src="../assets/js/global.js"></script>
 <script>
 
     const params = new URLSearchParams(window.location.search);
@@ -685,17 +653,6 @@
     }
 
     const origemSalva = origem || localStorage.getItem('holofly_origem') || 'sem_origem';
-
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    const overlay = document.getElementById('overlay');
-
-    function toggleMenu() {
-        navMenu.classList.toggle('active');
-        overlay.classList.toggle('active');
-    }
-    if(menuToggle) menuToggle.addEventListener('click', toggleMenu);
-    if(overlay) overlay.addEventListener('click', toggleMenu);
 
     const startButton = document.getElementById('startButton');
     const qrWrapper = document.getElementById('qrWrapper');

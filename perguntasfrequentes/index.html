@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perguntas Frequentes - Holofly</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="icons/favicon3232.png" type="image/x-icon">
+    <title>Como funciona - Holofly</title>
+    <meta name="description" content="Encontre respostas para as principais dúvidas de clientes e criativos da Holofly.">
+    <link rel="canonical" href="https://holofly.com.br/perguntasfrequentes/">
+    <meta property="og:title" content="Como funciona - Holofly">
+    <meta property="og:description" content="Encontre respostas para as principais dúvidas de clientes e criativos da Holofly.">
+    <meta property="og:image" content="https://holofly.com.br/icons/logofinal.jpeg">
+    <meta property="og:url" content="https://holofly.com.br/perguntasfrequentes/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Como funciona - Holofly">
+    <meta name="twitter:description" content="Encontre respostas para as principais dúvidas de clientes e criativos da Holofly.">
+    <meta name="twitter:image" content="https://holofly.com.br/icons/logofinal.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="icon" href="../icons/favicon3232.png" type="image/png">
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
         
@@ -34,63 +42,6 @@
             z-index: 1000;
         }
         
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        .logo-img {
-            height: 40px;
-            display: none;
-        }
-        
-        .menu-toggle {
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 30px;
-            height: 30px;
-            z-index: 1001;
-        }
-        
-        .menu-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-        
-        /* Estado inicial: 3 barras */
-        .menu-toggle span:nth-child(1) {
-            transform-origin: center;
-        }
-        
-        .menu-toggle span:nth-child(2) {
-            transform-origin: center;
-        }
-        
-        .menu-toggle span:nth-child(3) {
-            transform-origin: center;
-        }
-        
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-        
         .nav-menu {
             position: fixed;
             top: 0;
@@ -101,29 +52,6 @@
             padding: 80px 20px 20px;
             transition: right 0.3s ease;
             z-index: 999;
-        }
-        
-        .nav-menu.active {
-            right: 0;
-        }
-        
-        .nav-menu ul {
-            list-style: none;
-        }
-        
-        .nav-menu li {
-            margin-bottom: 15px;
-        }
-        
-        .nav-menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-menu a:hover {
-            color: #ccc;
         }
         
         .overlay {
@@ -139,11 +67,6 @@
             z-index: 998;
         }
         
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
         .main-content {
             max-width: 1000px;
             margin: 0 auto; 
@@ -292,39 +215,6 @@
             border-top: 0px solid #333;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .footer-links {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            margin-right: 10px;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: #fff;
-        }
-
-        .footer-text {
-            margin: 0;
-            font-size: 0.875rem;
-            color: #ccc;
-            line-height: 1.5;
-        }
-
-        .footer-text span {
-            display: inline-block;
-            margin-right: 15px;
-        }
-        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -354,38 +244,35 @@
                 font-size: 1.1rem;
             }
             
-            .footer-text span {
-                display: block;
-                margin: 2px 0;
-            }
         }
     </style>
 </head>
-<body>
-    <header>
+<body data-global-nav="true" data-responsive-logo="true" data-shared-footer-mobile="true">
+    <header class="site-header">
         <a href="../index.html" class="logo">
             <span class="logo-text">HOLOFLY</span>
-            <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img">
+            <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img" decoding="async">
         </a>
-        <div class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
+        <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../sobre/index.html">Sobre</a></li>
+                <li><a href="../criativos/index.html">Criativos</a></li>
+                <li><a href="../perguntasfrequentes/index.html" aria-current="page">Como funciona</a></li>
+                <li><a href="../contato/index.html">Contato</a></li>
+            </ul>
+        </nav>
     </header>
     
-    <nav class="nav-menu" id="navMenu">
-        <ul>
-            <li><a href="../">Início</a></li>
-            <li><a href="../sobre">Sobre a Holofly</a></li>
-            <li><a href="../contato">Contato</a></li>
-        </ul>
-    </nav>
-    
-    <div class="overlay" id="overlay"></div>
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
 
-    <div class="main-content">
-        <h1 class="page-title">Perguntas Frequentes</h1>
+    <main class="main-content">
+        <h1 class="page-title">Como funciona</h1>
         <p class="page-subtitle">Encontre respostas para suas dúvidas</p>
 
         <div class="filter-buttons">
@@ -444,7 +331,7 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
                 
                 <div class="faq-item">
                     <div class="question">Como faço para alterar meus dados?</div>
-                    <div class="answer">Para evitar fraudes, só alteramos dados via suporte. Envie e-mail para suporte@holofly.com.br com seus dados e um documento oficial válido em anexo.</div>
+                    <div class="answer">Para evitar fraudes, só alteramos dados via suporte. Envie e-mail para contato@holofly.com.br com seus dados e um documento oficial válido em anexo.</div>
                 </div>
                 
                 <div class="faq-item">
@@ -491,7 +378,7 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
                 
                 <div class="faq-item">
                     <div class="question">Como faço para alterar meus dados?</div>
-                    <div class="answer">Para evitar fraudes, só alteramos dados via suporte. Envie e-mail para suporte@holofly.com.br com seus dados e um documento oficial válido em anexo.</div>
+                    <div class="answer">Para evitar fraudes, só alteramos dados via suporte. Envie e-mail para contato@holofly.com.br com seus dados e um documento oficial válido em anexo.</div>
                 </div>
                 
                 <div class="faq-item">
@@ -508,13 +395,13 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
     <p>Envie um e-mail pra gente: <a href="mailto:contato@holofly.com.br?subject=Suporte%20Holofly" class="contact-email">contato@holofly.com.br</a></p>
 </div>
 
-    </div>
+    </main>
 
     <footer class="page-footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="../termos/">Termos de uso</a> 
-                <a href="../politica/">Política de privacidade</a>
+                <a href="../termos/index.html">Termos de uso</a> 
+                <a href="../politica/index.html">Política de privacidade</a>
             </div>
             <p class="footer-text">
                 <span>&copy; 2026 Holofly. Todos os direitos reservados.</span>
@@ -524,36 +411,8 @@ O valor será devolvido pelo mesmo cartão de crédito utilizado no pagamento, e
         </div>
     </footer>
 
+    <script src="../assets/js/global.js"></script>
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        const overlay = document.getElementById('overlay');
-        
-        function toggleMenu() {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-        
-        menuToggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-        
-        function checkScreenSize() {
-            const logoText = document.querySelector('.logo-text');
-            const logoImg = document.querySelector('.logo-img');
-            
-            if (window.innerWidth <= 768) {
-                logoText.style.display = 'none';
-                if (logoImg) logoImg.style.display = 'block';
-            } else {
-                logoText.style.display = 'block';
-                if (logoImg) logoImg.style.display = 'none';
-            }
-        }
-        
-        window.addEventListener('load', checkScreenSize);
-        window.addEventListener('resize', checkScreenSize);
-
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', function() {
                 document.querySelectorAll('.filter-btn').forEach(btn => {

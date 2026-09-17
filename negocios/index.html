@@ -144,7 +144,6 @@
             transform: translateY(-2px);
         }
 
-        /* Shared Holofly header, extended only with a configurable business CTA. */
         .site-header .header-cta { display: none; }
 
         .hero {
@@ -455,6 +454,7 @@
 
         .faq-layout { display: grid; gap: 36px; }
         .faq-list { border-top: 1px solid var(--line); }
+        .faq-more { display: inline-block; margin-top: 24px; padding-block: 12px; color: var(--cyan); text-underline-offset: 4px; }
         details { border-bottom: 1px solid var(--line); }
         summary {
             position: relative;
@@ -590,7 +590,7 @@
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
     <header class="site-header">
-        <a href="../index.html" class="logo" aria-label="Holofly — início">
+        <a href="/" class="logo" aria-label="Holofly — início">
             <span class="logo-text">HOLOFLY</span>
             <img src="../icons/logo.png" alt="HOLOFLY" class="logo-img" width="320" height="132" decoding="async">
         </a>
@@ -599,15 +599,15 @@
         </button>
         <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
             <ul>
-                <li><a href="../index.html">Início</a></li>
-                <li><a href="../sobre/index.html">Sobre</a></li>
-                <li><a href="../negocios/index.html" aria-current="page">Negócios</a></li>
-                <li><a href="../criativos/index.html">Criativos</a></li>
-                <li><a href="#como-funciona">Como funciona</a></li>
-                <li><a href="../contato/index.html">Contato</a></li>
+                <li><a href="/">Início</a></li>
+                <li><a href="/sobre/">Sobre</a></li>
+                <li><a href="/negocios/" aria-current="page">Negócios</a></li>
+                <li><a href="/criativos/">Criativos</a></li>
+                <li><a href="/perguntasfrequentes/">Como funciona</a></li>
+                <li><a href="/contato/">Contato</a></li>
+                <li><a class="header-cta" href="#baixar-app" data-business-cta="header" data-smart-store>Baixar app</a></li>
             </ul>
         </nav>
-        <a class="header-cta" href="#baixar-app" data-business-cta="header" data-smart-store>Baixar app</a>
     </header>
 
     <div class="overlay" id="overlay" aria-hidden="true"></div>
@@ -627,11 +627,6 @@
 
                 <div class="hero-visual reveal" aria-label="Demonstração do aplicativo Holofly para clientes">
                     <div class="hero-orbit" aria-hidden="true"></div>
-                    <!-- [MOCKUP-01] HERO APP — CARDS FINAIS INSERIDOS
-                    Fundo: ../images/hero-card-gastronomia.png (1012x1554px).
-                    Frente: ../images/hero-card-moda.png (1136x1384px).
-                    Finalidade: mostrar exemplos de criativos disponíveis dentro do mockup do app.
-                    -->
                     <div class="hero-mockup-slot">
                         <div class="phone" aria-hidden="true">
                             <div class="phone-screen">
@@ -658,17 +653,11 @@
 
                 <div class="gallery-wrap reveal">
                     <div class="media-gallery" id="businessGallery" aria-label="Exemplos de conteúdos por categoria">
-                        <!-- CARD GASTRONOMIA: substitua poster/src, vídeo (se disponível) e texto da categoria. -->
                         <article class="media-card"><img src="../images/cliente05.webp" alt="Exemplo de conteúdo para gastronomia" width="720" height="1280" loading="lazy" decoding="async"></article>
-                        <!-- CARD MODA: substitua poster/src, vídeo (se disponível) e texto da categoria. -->
                         <article class="media-card"><img src="../images/back-cliente.webp" alt="Exemplo de conteúdo para moda" width="1080" height="1920" loading="lazy" decoding="async"></article>
-                        <!-- CARD ARTESANATO: substitua poster/src, vídeo (se disponível) e texto da categoria. -->
                         <article class="media-card"><img src="../images/cliente03.webp" alt="Exemplo de conteúdo para artesanato" width="720" height="1280" loading="lazy" decoding="async"></article>
-                        <!-- CARD ESPAÇOS: substitua poster/src, vídeo (se disponível) e texto da categoria. -->
                         <article class="media-card"><img src="../images/cliente04.webp" alt="Exemplo de conteúdo para espaços" width="720" height="1280" loading="lazy" decoding="async"></article>
-                        <!-- CARD BELEZA: substitua poster/src, vídeo (se disponível) e texto da categoria. -->
                         <article class="media-card"><img src="../images/cliente01.webp" alt="Exemplo de conteúdo para beleza" width="720" height="1280" loading="lazy" decoding="async"></article>
-                        <!-- CARD PRODUTOS: substitua poster/src, vídeo (se disponível) e texto da categoria. -->
                         <article class="media-card"><img src="../images/cliente02.webp" alt="Exemplo de conteúdo para produtos" width="720" height="1280" loading="lazy" decoding="async"></article>
                     </div>
                     <p class="gallery-hint">Deslize para ver mais possibilidades.</p>
@@ -686,10 +675,7 @@
                     <span class="eyebrow">Do seu material para uma nova ideia</span>
                     <h2 id="imagine-title" class="section-title">Imagine o seu produto aqui.</h2>
                     <p class="section-copy">Você envia as fotos, vídeos ou referências do seu negócio. O criativo transforma esse material em uma nova peça de conteúdo.</p>
-                    <!-- [MOCKUP-02] EXEMPLO ANTES/DEPOIS — ASSETS FINAIS INSERIDOS
-                    Antes: ../images/negocios-material-original-hamburguer.png (1024x1024px).
-                    Depois: ../images/negocios-nova-apresentacao.mp4.
-                    -->
+
                     <div class="example-visual-slot" aria-label="Exemplo de transformação do material original em conteúdo final">
                         <div class="example-panel has-image">
                             <img src="../images/negocios-material-original-hamburguer.png" alt="Foto original de um hambúrguer usada como material do pedido" width="1024" height="1024" loading="lazy" decoding="async">
@@ -721,17 +707,14 @@
                 </div>
                 <div class="steps">
                     <article class="step reveal">
-                        <!-- TODO: substituir pelo ícone final de pedido. -->
                         <div class="step-icon" aria-hidden="true">↗</div>
                         <div><span class="step-number">01</span><h3>Conte o que precisa</h3><p>Explique sua ideia, envie referências e os materiais do seu negócio.</p></div>
                     </article>
                     <article class="step reveal">
-                        <!-- TODO: substituir pelo ícone final de escolha. -->
                         <div class="step-icon" aria-hidden="true">◎</div>
                         <div><span class="step-number">02</span><h3>Escolha o criativo</h3><p>Veja portfólios e escolha o estilo que combina com seu projeto.</p></div>
                     </article>
                     <article class="step reveal">
-                        <!-- TODO: substituir pelo ícone final de entrega. -->
                         <div class="step-icon" aria-hidden="true">✓</div>
                         <div><span class="step-number">03</span><h3>Acompanhe e receba</h3><p>Acompanhe o pedido e receba o conteúdo pela plataforma.</p></div>
                     </article>
@@ -747,30 +730,18 @@
                 </div>
                 <div class="product-grid">
                     <article class="product-item reveal">
-                        <!-- [MOCKUP-03] SCREEN CRIAR PEDIDO — ASSET FINAL INSERIDO
-                        Arquivo: ../images/negocios-criar-pedido.png (1242x2688px).
-                        Finalidade: demonstrar a criação de um pedido no app de clientes.
-                        -->
                         <figure class="app-screen-slot">
                             <img src="../images/negocios-criar-pedido.png" alt="Tela da Holofly mostrando a criação de um pedido em poucos passos" width="1242" height="2688" loading="lazy" decoding="async">
                         </figure>
                         <div><span class="product-index">01</span><h3>Crie seu pedido</h3><p>Organize a ideia, o formato e o que precisa aparecer no conteúdo.</p></div>
                     </article>
                     <article class="product-item reveal">
-                        <!-- [MOCKUP-04] SCREEN ESCOLHER CRIATIVO — ASSET FINAL INSERIDO
-                        Arquivo: ../images/negocios-encontrar-criativos.png (1242x2688px).
-                        Finalidade: demonstrar a escolha de quem produzirá o conteúdo.
-                        -->
                         <figure class="app-screen-slot">
                             <img src="../images/negocios-encontrar-criativos.png" alt="Tela da Holofly mostrando a escolha de um criativo para produzir o conteúdo" width="1242" height="2688" loading="lazy" decoding="async">
                         </figure>
                         <div><span class="product-index">02</span><h3>Encontre criativos</h3><p>Compare estilos e escolha quem combina com o seu projeto.</p></div>
                     </article>
                     <article class="product-item reveal">
-                        <!-- [MOCKUP-05] SCREEN ACOMPANHAMENTO — ASSET FINAL INSERIDO
-                        Arquivo: ../images/negocios-acompanhar-pedido.png (1242x2688px).
-                        Finalidade: demonstrar o acompanhamento das etapas do pedido.
-                        -->
                         <figure class="app-screen-slot">
                             <img src="../images/negocios-acompanhar-pedido.png" alt="Tela da Holofly mostrando o acompanhamento de um pedido em produção" width="1242" height="2688" loading="lazy" decoding="async">
                         </figure>
@@ -822,12 +793,10 @@
             <div class="container faq-layout">
                 <div class="reveal"><span class="eyebrow">Perguntas frequentes</span><h2 id="faq-title" class="section-title">Antes de começar.</h2></div>
                 <div class="faq-list reveal">
-                    <!-- CONFIRMAR ANTES DE PUBLICAR: só incluir FAQ sobre conta gratuita após validar essa política. -->
                     <details><summary>Como escolho um criativo?</summary><p>Você pode conhecer perfis, portfólios e estilos antes de escolher quem combina com o seu pedido.</p></details>
                     <details><summary>Que materiais posso enviar?</summary><p>Fotos, vídeos, referências, textos e outros materiais que ajudem o criativo a entender o seu negócio e a sua ideia.</p></details>
                     <details><summary>O criativo precisa ir até o meu negócio?</summary><p>Grande parte dos conteúdos pode ser produzida remotamente a partir dos materiais enviados no pedido.</p></details>
-                    <details><summary>Como acompanho o pedido?</summary><p>O andamento do pedido fica disponível na aba pedidos, dentro do app.</p></details>
-                    <details><summary>Posso pedir conteúdos diferentes?</summary><p>Sim. A plataforma foi pensada para conectar negócios a diferentes estilos e habilidades criativas, de acordo com a disponibilidade dos profissionais cadastrados.</p></details>
+                    <p><a class="faq-more" href="/perguntasfrequentes/">Ver todas as perguntas frequentes →</a></p>
                 </div>
             </div>
         </section>
@@ -859,7 +828,6 @@
         (function () {
             'use strict';
 
-            // UTM parameters are intentionally read-only and remain available to existing analytics.
             const searchParams = new URLSearchParams(window.location.search);
             const campaignData = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
                 .reduce(function (data, key) {

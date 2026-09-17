@@ -38,7 +38,7 @@
         });
 
         window.addEventListener('resize', function () {
-            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+            if (window.innerWidth > 1100 && navMenu.classList.contains('active')) {
                 setMenuState(false);
             }
         });

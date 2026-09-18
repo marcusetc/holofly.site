@@ -228,8 +228,9 @@
             height: 24px;
         }
 
-        .mercado {
-            height: 28px; 
+        .stone-name {
+            font-size: 1.25rem;
+            line-height: 1.2;
         }
 
         .founder-box {
@@ -237,78 +238,38 @@
             border-radius: 30px;
             padding: 60px;
             border-left: 6px solid var(--primary);
-            display: flex;
-            gap: 60px;
-            align-items: flex-start;
-            flex-wrap: wrap;
         }
 
         .founder-content {
-            flex: 1.2;
-            min-width: 280px;
+            max-width: 760px;
+            margin-inline: auto;
+            min-width: 0;
         }
 
-        .founder-content h2 { 
-            font-size: 2rem; 
-            margin-bottom: 25px; 
-        }
-        
-        .founder-content p { 
-            margin-bottom: 20px; 
-            color: var(--text-secondary); 
-            font-size: 1.05rem; 
+        .founder-content h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
         }
 
-        .founder-img-wrapper {
-            flex: 0.8;
-            min-width: 240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+        .founder-content p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
         }
 
-        .founder-img {
-            width: 100%;
-            max-width: 240px;
-            background: #222;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5);
-        }
-
-        .founder-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            aspect-ratio: 3 / 4;
-            object-fit: cover;
-        }
+        .founder-signature { margin-top: 32px; }
+        .founder-role { font-size: 0.9rem; color: var(--text-secondary); }
 
         .signature {
             font-family: 'Georgia', serif;
             font-style: italic;
             font-size: 1.4rem;
             color: var(--text-secondary); 
-            text-align: center;
+            text-align: left;
             width: 100%;
         }
         
-        @media (min-width: 992px) {
-            .founder-box {
-                flex-wrap: nowrap;
-                align-items: center;
-            }
-            
-            .founder-img-wrapper {
-                order: 2;
-            }
-            
-            .founder-content {
-                order: 1; 
-            }
-        }
+
 
                 .page-footer {
             background-color: #000;
@@ -316,28 +277,11 @@
             border-top: 0px solid #333;
         }
 
-        @media (max-width: 991px) and (min-width: 769px) {
-            .founder-box {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .founder-content {
-                text-align: center;
-            }
-            
-            .founder-img-wrapper {
-                margin-top: 30px;
-            }
-        }
+
         
         @media (max-width: 768px) {
             .founder-box {
                 padding: 30px;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
             }
             
             .founder-content {
@@ -352,11 +296,7 @@
                 font-size: 2rem; 
             }
             
-            .founder-img-wrapper {
-                margin-top: 30px;
-            }
-            
-            .founder-img {
+.founder-img {
                 max-width: 180px;
             }
         }
@@ -503,14 +443,14 @@
         <section class="security-bar">
             <div class="security-text">
                 <h3>Infraestrutura de Classe Mundial</h3>
-                <p>Utilizamos Google Firebase em nossa infraestrutura e Mercado Pago para proteção dos pagamentos.</p>
+                <p>Utilizamos Google Firebase em nossa infraestrutura e integração com a Stone para pagamentos.</p>
             </div>
             <div class="security-logos">
                 <div class="logo-item">
                     <img src="../icons/firebase_pb.svg" alt="Google Firebase" class="svg-icon" width="749" height="205" loading="lazy" decoding="async">
                 </div>
                 <div class="logo-item">
-                    <img src="../icons/mercado_pago_pb.svg" alt="Mercado Pago" class="svg-icon mercado" width="1049" height="425" loading="lazy" decoding="async">
+                    <span class="stone-name">Stone</span>
                 </div>
             </div>
         </section>
@@ -521,13 +461,10 @@
 <p>A Holofly nasceu com um propósito simples: Conectar pequenos empreendedores a gente criativa. Quem precisa crescer e quem sabe criar.</p>
 <p>De um lado, negócios com potencial, mas pouca visibilidade. Do outro, criadores com talento, mas nem sempre com acesso à novos clientes.</p>
                 <p>A proposta é unir essas duas forças e criar um novo fluxo de oportunidades, contribuindo com o crescimento de ambos, de forma acessível, direta e mais alinhada com a realidade atual.</p>
-
-            </div>
-            <div class="founder-img-wrapper">
-                <div class="founder-img">
-                    <img src="../images/marcus.png" alt="Marcus Guimarães" width="636" height="934" loading="lazy" decoding="async">
+                <div class="founder-signature">
+                    <div class="signature">Marcus Guimarães</div>
+                    <div class="founder-role">Fundador da Holofly</div>
                 </div>
-                <div class="signature">Marcus Guimarães</div>
             </div>
         </section>
 
